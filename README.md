@@ -6,7 +6,7 @@
 
 ## [My Github](https://github.com/maripd) | [My Linkedin](https://www.linkedin.com/in/marissa-dilig-6ba71923a/) | [Trello](https://trello.com/b/A7Rwzhqv/job-tracker-app) | []()
 
-![Notebook Project](client/src/homepage.png) | [Hierarchy Component Diagram](client/src/hierarchy-component.png) | [ERD](client/src/ERD.png)
+![Job Tracker Project](client/src/homepage.png) | [Hierarchy Component Diagram](client/src/hierarchy-component.png) | [ERD](client/src/ERD.png)
 
 ##### **Description**
 
