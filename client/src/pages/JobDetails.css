@@ -73,3 +73,16 @@ span {
 .companyname {
   margin: 2% auto;
 }
+
+.editdelete-btns {
+  display: flex;
+  justify-content: right;
+}
+
+.deletebtn, .editbtn {
+  background-color: #b3c3cb;
+  padding: 5px;
+  margin: auto 3px;
+  border-radius: 3px;
+  font-size: 10px;
+}

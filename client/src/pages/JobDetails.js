@@ -1,4 +1,5 @@
 import JobDetailsCss from './JobDetails.css'
+import deleteImg from './delete_img.jpg'
 
 const AllJobsData = [
   {
@@ -57,6 +58,10 @@ const JobDetails = (props) => {
       <div className="main-container">
         <div class="jobdetails-container">
           <section>
+            <div className="editdelete-btns">
+              <span className="deletebtn">delete</span>
+              <span class="editbtn">edit</span>
+            </div>
             {AllJobsData.map((jobDetailItem) => {
               console.log(jobDetailItem)
               return (

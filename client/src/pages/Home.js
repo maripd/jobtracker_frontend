@@ -3,7 +3,7 @@ import '../App.css'
 import ReminderList from '../components/ReminderList'
 import AllJobs from '../components/AllJobs'
 import CenterButtons from '../components/CenterButtonsHome'
-import CenterButtonsCss from './CenterButtons.css'
+import '../components/CenterButtons.css'
 
 const remindersData = [
   {
