@@ -1,0 +1,10 @@
+.centerbtns-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 10px;
+}
+
+.addjob-btncontainer, .threecenter-btns {
+  flex-direction: row;
+}
+

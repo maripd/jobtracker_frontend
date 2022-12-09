@@ -1,0 +1,25 @@
+.alljobs-container {
+  
+  width: 150px;
+  margin: 10px auto;
+}
+
+.alljobs-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 5px 10px;
+  border: 1px solid black;
+  width: 120px;
+  height: 120px;
+  
+}
+
+.jobcard-detail {
+  font-size: 10px;
+}
+
+.job-card {
+  text-align: center;
+  padding: 0;
+}
