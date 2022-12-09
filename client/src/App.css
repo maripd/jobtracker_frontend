@@ -67,16 +67,21 @@
 .reminders-container {
   margin: 10px;
   background-color: #C8D5D6;
-  text-align: center;
   border-radius: 5px;
+  padding: 0;
 }
 
 .jobdetails-container {
   display: flex;
-  margin: 0 auto;
   list-style-type: none;
   justify-content: space-between;
 }
+
+.mainremind-container {
+  display: flex;
+}
+
+
 
 p {
  font-size: 12px;
