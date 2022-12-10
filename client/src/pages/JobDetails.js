@@ -1,57 +1,22 @@
-import JobDetailsCss from './JobDetails.css'
-import deleteImg from './delete_img.jpg'
-
-const AllJobsData = [
-  {
-    companyName: 'Apple',
-    jobTitle: 'Full Stack Engineer',
-    hiringStatus: 'Actively Recruiting',
-    jobDateAdded: '10-22-2022',
-    dateApplied: '10-23-2022',
-    applicationStatus: 'Applied',
-    contactEmail: 'abc@gmail.com',
-    notes: 'Need to review for technical assessment.',
-    urls: 'github.com, classwiki.com'
-  },
-  {
-    companyName: 'Walt Disney',
-    jobTitle: 'Front End Engineer',
-    hiringStatus: 'Actively Recruiting',
-    applicationStatus: 'Applied',
-    jobDateAdded: '10-22-2022',
-    dateApplied: '10-23-2022',
-    applicationStatus: 'Applied',
-    contactEmail: 'abc@gmail.com',
-    notes: 'Need to review for technical assessment.',
-    urls: 'github.com, classwiki.com'
-  },
-  {
-    companyName: 'Netflix',
-    jobTitle: 'Back End Engineer',
-    hiringStatus: 'Actively Recruiting',
-    applicationStatus: 'Applied',
-    jobDateAdded: '10-22-2022',
-    dateApplied: '10-23-2022',
-    applicationStatus: 'Applied',
-    contactEmail: 'abc@gmail.com',
-    notes: 'Need to review for technical assessment.',
-    urls: 'github.com, classwiki.com'
-  },
-  {
-    companyName: 'Google',
-    jobTitle: 'Full Stack Engineer',
-    hiringStatus: 'Actively Recruiting',
-    applicationStatus: 'Applied',
-    jobDateAdded: '10-22-2022',
-    dateApplied: '10-23-2022',
-    applicationStatus: 'Applied',
-    contactEmail: 'abc@gmail.com',
-    notes: 'Need to review for technical assessment.',
-    urls: 'github.com, classwiki.com'
-  }
-]
+import './JobDetails.css'
+// import deleteImg from './delete_img.jpg'
+import axios from 'axios'
+import { useState } from 'react'
+import React, { useEffect } from 'react'
 
 const JobDetails = (props) => {
+  const [currentData, setData] = useState('')
+
+  useEffect(() => {
+    const getAllJobs = async () => {
+      let response = await axios.get('http://localhost:3001/getalljobs')
+      console.log('This is JOB DETAILS PAGE', response.data.allJobs)
+      console.log('JOB DETAILS PAGE', response.data.allJobs)
+      setData(response.data.allJobs)
+    }
+    getAllJobs()
+  }, [])
+
   return (
     <div>
       <header>Mari</header>
@@ -62,35 +27,36 @@ const JobDetails = (props) => {
               <span className="deletebtn">delete</span>
               <span class="editbtn">edit</span>
             </div>
-            {AllJobsData.map((jobDetailItem) => {
-              console.log(jobDetailItem)
+
+            {currentData.map((jobItem) => {
+              console.log(jobItem)
               return (
                 <div className="secondmain-container">
                   <div className="topsection">
-                    <h2 className="companyname">{jobDetailItem.companyName}</h2>
+                    <h2 className="companyname">{jobItem.companyName}</h2>
                     <div className="titlelink-container">
-                      <h4 className="job-title">{jobDetailItem.jobTitle}</h4>
+                      <h4 className="job-title">{jobItem.jobTitle}</h4>
                       <div className="job-link">Job Link</div>
                     </div>
                     <div className="span-container">
-                      <span>{jobDetailItem.hiringStatus}</span>
-                      <span>Date added: {jobDetailItem.jobDateAdded}</span>
-                      <span>Date applied: {jobDetailItem.dateApplied}</span>
+                      <span>{jobItem.hiringStatus}</span>
+                      <span>Date added: {jobItem.jobDateAdded}</span>
+                      <span>Date applied: {jobItem.dateApplied}</span>
                       <span>
-                        Application Status: {jobDetailItem.applicationStatus}
+                        Application Status: {jobItem.applicationStatus}
                       </span>
-                      <span>{jobDetailItem.contactEmail}</span>
+                      <span>{jobItem.contactEmail}</span>
                     </div>
                   </div>
 
                   <div className="notes-container">
                     <p>Notes:</p>
-                    <span>{jobDetailItem.notes}</span>
+                    <span>{jobItem.notes}</span>
                   </div>
 
                   <div className="url-container">
                     <p>URLs:</p>
-                    <span>{jobDetailItem.urls}</span>
+                    <span>{jobItem.urls}</span>
                   </div>
                 </div>
               )

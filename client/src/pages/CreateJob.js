@@ -1,7 +1,7 @@
 import createjob from './createjob.css'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import React from 'react'
 
 const CreateJob = () => {

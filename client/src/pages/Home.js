@@ -31,9 +31,6 @@ const remindersData = [
 
 const Home = () => {
   const [currentData, setData] = useState('')
-  const [currentCompanyName, setCompanyName] = useState('')
-  const [currentJobTitle, setJobTitle] = useState('')
-  const [currentApplicationStatus, setApplicationStatus] = useState('')
 
   useEffect(() => {
     const getJobData = async () => {
