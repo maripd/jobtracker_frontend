@@ -8,3 +8,17 @@
   flex-direction: row;
 }
 
+#search-icon {
+  width: 22px;
+  margin: auto 3px;
+}
+
+#filter-icon {
+  width: 22px;
+  margin: auto 3px;
+}
+
+#sort-icon {
+  width: 24px;
+  margin: auto 3px;
+}

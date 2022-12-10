@@ -1,4 +1,7 @@
 import { useNavigate } from 'react-router-dom'
+import filter from './filter.png'
+import search from './search.png'
+import sort from './sort.png'
 
 const CenterButtons = () => {
   const navigate = useNavigate()
@@ -14,9 +17,9 @@ const CenterButtons = () => {
         </button>
       </div>
       <div className="threecenter-btns">
-        <button className="search-btn">Search</button>
-        <button className="filter-btn">Filter</button>
-        <button className="sort-btn">Sort</button>
+        <img src={search} id="search-icon" />
+        <img src={filter} id="filter-icon" />
+        <img src={sort} id="sort-icon" />
       </div>
     </div>
   )

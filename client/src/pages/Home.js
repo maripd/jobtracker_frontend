@@ -1,5 +1,9 @@
 // import { Link } from 'react-router-dom'
 import '../App.css'
+import { useParams } from 'react-router-dom'
+import React from 'react'
+import axios from 'axios'
+import { useEffect, useState } from 'react'
 import ReminderList from '../components/ReminderList'
 import AllJobs from '../components/AllJobs'
 import CenterButtons from '../components/CenterButtonsHome'
@@ -25,33 +29,22 @@ const remindersData = [
   }
 ]
 
-const AllJobsData = [
-  {
-    companyName: 'Apple',
-    jobTitle: 'Full Stack Engineer',
-    hiringStatus: 'Actively Recruiting',
-    applicationStatus: 'Applied'
-  },
-  {
-    companyName: 'Walt Disney',
-    jobTitle: 'Front End Engineer',
-    hiringStatus: 'Actively Recruiting',
-    applicationStatus: 'Applied'
-  },
-  {
-    companyName: 'Netflix',
-    jobTitle: 'Back End Engineer',
-    hiringStatus: 'Actively Recruiting',
-    applicationStatus: 'Applied'
-  },
-  {
-    companyName: 'Google',
-    jobTitle: 'Full Stack Engineer',
-    hiringStatus: 'Actively Recruiting',
-    applicationStatus: 'Applied'
-  }
-]
 const Home = () => {
+  const [currentData, setData] = useState('')
+  const [currentCompanyName, setCompanyName] = useState('')
+  const [currentJobTitle, setJobTitle] = useState('')
+  const [currentApplicationStatus, setApplicationStatus] = useState('')
+
+  useEffect(() => {
+    const getJobData = async () => {
+      let response = await axios.get('http://localhost:3001/getalljobs')
+      console.log('This is the DATA that I need!', response.data.allJobs)
+      console.log('COMPANY NAME', response.data.allJobs)
+      setData(response.data.allJobs)
+    }
+    getJobData()
+  }, [])
+
   return (
     <div className="main-container">
       <div className="header-container">
@@ -77,7 +70,7 @@ const Home = () => {
       </div>
       <div>
         <ul className="job-card">
-          {AllJobsData.map((jobItem) => {
+          {currentData.map((jobItem) => {
             console.log(jobItem)
             return (
               <AllJobs
@@ -85,7 +78,6 @@ const Home = () => {
                 jobTitle={jobItem.jobTitle}
                 hiringStatus={jobItem.hiringStatus}
                 applicationStatus={jobItem.applicationStatus}
-                statusBar={jobItem.statusBar}
               />
             )
           })}
