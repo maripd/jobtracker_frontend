@@ -117,3 +117,8 @@ span {
  padding: 3px;
  background-color: #b3c3cb;
 }
+
+
+.hide {
+  display: none;
+}
