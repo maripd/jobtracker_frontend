@@ -87,17 +87,26 @@ span {
   font-size: 10px;
 }
 
-.x-close {
-  text-align: right;
-  margin: auto auto;
-}
+
 
 .popup-box {
-  border: 1px solid gray;
+  background-color: #c8d5d6;
+  border: 1px solid rgb(181, 179, 179);
+  position: absolute;
+  z-index: 20;
+  border-radius: 5px;
+  top: 200px;
+  width: 250px;
+  padding: 12px;
 }
 
 .popup-text {
   text-align: center;
+}
+
+.x-close {
+  text-align: right;
+  margin: auto auto;
 }
 
 .removebtn {
