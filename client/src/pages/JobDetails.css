@@ -86,3 +86,25 @@ span {
   border-radius: 3px;
   font-size: 10px;
 }
+
+.x-close {
+  text-align: right;
+  margin: auto auto;
+}
+
+.popup-box {
+  border: 1px solid gray;
+}
+
+.popup-text {
+  text-align: center;
+}
+
+.removebtn {
+ text-align: center;
+ border-radius: 3px;
+ margin:5px auto;
+ width: 40px;
+ padding: 3px;
+ background-color: #b3c3cb;
+}

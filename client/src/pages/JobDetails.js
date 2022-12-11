@@ -27,12 +27,26 @@ const JobDetails = (props) => {
     navigate(`/editpage/${id}`)
   }
 
+  const deleteHandleClick = async () => {
+    const response = await axios.delete(`http://localhost:3001/deletejob/${id}`)
+    navigate('/')
+  }
+
   return (
     <div>
       <header>Mari</header>
       <div className="main-container">
         <div className="jobdetails-container">
           <section>
+            <div className="popup-box">
+              <p className="x-close"> X</p>
+              <p className="popup-text">
+                Are you sure you want to remove this item?
+              </p>
+              <p className="removebtn" onClick={deleteHandleClick}>
+                Delete
+              </p>
+            </div>
             <div className="editdelete-btns">
               <span className="deletebtn">delete</span>
               <span onClick={editHandleClick} className="editbtn">
