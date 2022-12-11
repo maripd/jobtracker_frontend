@@ -9,28 +9,9 @@ import JobCard from '../components/JobCard'
 import CenterButtons from '../components/CenterButtonsHome'
 import '../components/CenterButtons.css'
 
-const remindersData = [
-  {
-    company: 'Walt Disney',
-    text: 'Code challenge due on Monday'
-  },
-  { company: 'Electronic Arts', text: 'Rejection follow up' },
-  {
-    company: 'Dell',
-    text: 'Email reply onsite question'
-  },
-  {
-    company: 'IBM',
-    text: 'Offer reply'
-  },
-  {
-    company: 'Target',
-    text: 'Edit resume for Target'
-  }
-]
-
 const Home = () => {
   const [currentData, setData] = useState([])
+  const [currentReminders, setReminders] = useState([])
 
   useEffect(() => {
     const getJobData = async () => {
@@ -40,6 +21,13 @@ const Home = () => {
       setData(response.data.allJobs)
     }
     getJobData()
+
+    const getRemindersData = async () => {
+      let response = await axios.get('http://localhost:3001/getallreminders')
+      console.log('This is the REMINDERS data', response.data.allReminders)
+      setReminders(response.data.allReminders)
+    }
+    getRemindersData()
   }, [])
 
   return (
@@ -51,12 +39,13 @@ const Home = () => {
 
       <div className="reminders-box">
         <ul className="reminders-container">
-          {remindersData.map((remindItem) => {
+          {currentReminders.map((remindItem) => {
             console.log('this is a remind item', remindItem)
             return (
               <ReminderList
-                companyName={remindItem.company}
-                remindText={remindItem.text}
+                companyName={currentData.companyName}
+                remindText={remindItem.reminderText}
+                applicationStatus={currentData.applicationStatus}
               />
             )
           })}

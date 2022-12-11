@@ -15,11 +15,13 @@ const CreateJob = () => {
   const [currentNotes, setNotes] = useState('')
   const [currentReminders, setReminders] = useState('')
   const [currentUrls, setUrls] = useState('')
+  const [currentIsComplete, setIsComplete] = useState(Boolean)
 
   let { id } = useParams()
 
   const submitHandleClick = async (e) => {
-    let response = await axios.post('http://localhost:3001/createjob', {
+    console.log('submit button was clicked!')
+    const response = await axios.post('http://localhost:3001/createjob', {
       companyName: currentCompanyName,
       jobTitle: currentJobTitle,
       hiringStatus: currentHiringStatus,
@@ -30,7 +32,10 @@ const CreateJob = () => {
       notes: currentNotes,
       urls: currentUrls
     })
-    console.log('submit button was clicked!')
+    const res = await axios.post('http://localhost:3001/createreminder', {
+      reminderText: currentReminders,
+      isComplete: currentIsComplete
+    })
   }
 
   const companyNameHandleChange = async (e) => {
