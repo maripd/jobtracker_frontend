@@ -1,11 +1,11 @@
 // import { Link } from 'react-router-dom'
 import '../App.css'
-import { useParams } from 'react-router-dom'
+
 import React from 'react'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import ReminderList from '../components/ReminderList'
-import AllJobs from '../components/AllJobs'
+import JobCard from '../components/JobCard'
 import CenterButtons from '../components/CenterButtonsHome'
 import '../components/CenterButtons.css'
 
@@ -30,7 +30,7 @@ const remindersData = [
 ]
 
 const Home = () => {
-  const [currentData, setData] = useState('')
+  const [currentData, setData] = useState([])
 
   useEffect(() => {
     const getJobData = async () => {
@@ -70,7 +70,8 @@ const Home = () => {
           {currentData.map((jobItem) => {
             console.log(jobItem)
             return (
-              <AllJobs
+              <JobCard
+                id={jobItem._id}
                 companyName={jobItem.companyName}
                 jobTitle={jobItem.jobTitle}
                 hiringStatus={jobItem.hiringStatus}

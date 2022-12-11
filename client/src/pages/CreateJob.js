@@ -144,12 +144,13 @@ const CreateJob = () => {
           id="textarea-notes"
           placeholder="Notes"
         />
-        <textarea
+        <input
           value={currentUrls}
+          type="url"
           onChange={(e) => urlsHandleChange(e, 'urls')}
           className="form-item"
           id="textarea-urls"
-          placeholder="URLs"
+          placeholder="URL"
         />
         <button onClick={submitHandleClick}>Submit</button>
       </form>

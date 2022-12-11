@@ -4,6 +4,7 @@ import CreateJob from './pages/CreateJob'
 import SignUp from './pages/SignUp'
 import EditPage from './pages/EditPage'
 import SignIn from './pages/SignIn'
+import JobCard from './components/JobCard'
 import { Routes, Route } from 'react-router-dom'
 
 const App = () => {
@@ -12,11 +13,10 @@ const App = () => {
       {/* <p>Hello</p> */}
       <Routes>
         <Route path="/" element={<Home />} />
-        {/* add :id to jobDetails */}
-        <Route path="/jobDetails" element={<JobDetails />} />
+        <Route path="/jobDetails/:id" element={<JobDetails />} />
         <Route path="/createJob" element={<CreateJob />} />
         <Route path="/signUp" element={<SignUp />} />
-        <Route path="/editPage" element={<EditPage />} />
+        <Route path="/editpage/:id" element={<EditPage />} />
         <Route path="/signIn" element={<SignIn />} />
       </Routes>
     </div>
@@ -24,10 +24,3 @@ const App = () => {
 }
 
 export default App
-
-// {
-//
-
-//<Route path="/jobDetails/:id" element={<SignUpPage />} />
-//
-// }

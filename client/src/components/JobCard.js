@@ -1,12 +1,12 @@
-import './Alljobs.css'
+import './JobCard.css'
 import { useNavigate } from 'react-router-dom'
 
-const AllJobs = (props) => {
+const JobCard = (props) => {
   const navigate = useNavigate()
 
   const cardHandleClick = () => {
     // add id for path
-    navigate(`/jobDetails`)
+    navigate(`/jobDetails/${props.id}`)
   }
 
   return (
@@ -22,4 +22,4 @@ const AllJobs = (props) => {
     </div>
   )
 }
-export default AllJobs
+export default JobCard
