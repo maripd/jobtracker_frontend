@@ -10,7 +10,10 @@ import { Routes, Route } from 'react-router-dom'
 const App = () => {
   return (
     <div>
-      {/* <p>Hello</p> */}
+      <div className="header-container">
+        <div className="user-name">MARI</div>
+        <div className="signout-btn">SIGN OUT</div>
+      </div>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/jobDetails/:id" element={<JobDetails />} />

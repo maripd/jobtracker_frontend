@@ -2,27 +2,32 @@ import '../App.css'
 import React from 'react'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { renderMatches, useParams } from 'react-router-dom'
 
 const ReminderItem = (props) => {
-  let { id } = useParams()
-
-  const completeHandleClick = async () => {
+  const completeHandleClick = async (e) => {
+    console.log(props.id)
     const response = await axios.put(
-      `http://localhost:3001/updatereminder/${id}`,
+      `http://localhost:3001/updatereminder/${props.id}`,
       {
-        isComplete: true
+        isComplete: true,
+        reminderText: props.remindText,
+        jobId: props.jobId
       }
     )
+    //definition getremindersdata is called from home line 65
+    props.completed()
   }
 
   return (
-    <div className="mainremind-container">
-      <div className="circle-btn" onClick={completeHandleClick}></div>
-      <li className="jobdetails-container">
-        <p className="reminddetail-company">{props.companyName}</p>
-        <p className="reminder-text">{props.remindText}</p>
-      </li>
+    <div>
+      <div className="mainremind-container ">
+        <div className="circle-btn" onClick={completeHandleClick}></div>
+        <li className="jobdetails-container">
+          <p className="reminddetail-company">{props.companyName}</p>
+          <p className="reminder-text">{props.remindText}</p>
+        </li>
+      </div>
     </div>
   )
 }

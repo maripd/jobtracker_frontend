@@ -10,45 +10,35 @@ import CenterButtons from '../components/CenterButtonsHome'
 import '../components/CenterButtons.css'
 
 const Home = () => {
-  let { id } = useNavigate()
   const [currentData, setData] = useState([])
   const [currentReminders, setReminders] = useState([])
-  const [currentReminder, setReminder] = useState({})
-
+  console.log('THIS IS CURRENT REMINDERS', currentReminders)
+  const getRemindersData = async () => {
+    const response = await axios.get('http://localhost:3001/getallreminders')
+    // console.log('This is the REMINDERS data', response.data.allReminders)
+    setReminders(response.data.allReminders)
+  }
   useEffect(() => {
     const getJobData = async () => {
       const response = await axios.get('http://localhost:3001/getalljobs')
-      console.log('This is the DATA that I need!', response.data.allJobs)
-      console.log('COMPANY NAME', response.data.allJobs)
+      // console.log('This is the DATA that I need!', response.data.allJobs)
+      // console.log('COMPANY NAME', response.data.allJobs)
       setData(response.data.allJobs)
     }
     getJobData()
-
-    const getRemindersData = async () => {
-      const response = await axios.get('http://localhost:3001/getallreminders')
-      console.log('This is the REMINDERS data', response.data.allReminders)
-      setReminders(response.data.allReminders)
-      if (id !== undefined) {
-        const res = await axios.get(`http://localhost:3001/getreminder/${id}`)
-        console.log('This is a SINGLE REMINDER', res.data.reminderText)
-        setReminder(res.data.reminderText)
-      }
-    }
     getRemindersData()
   }, [])
 
   return (
     <div className="main-container">
-      <div className="header-container">
-        <div className="user-name">MARI</div>
-        <div className="signout-btn">SIGN OUT</div>
-      </div>
-
       <div className="reminders-box">
         <ul className="reminders-container">
           {currentReminders.map((remindItem) => {
-            console.log('this is a remind item', remindItem)
-            console.log('THIS IS JOB ID', remindItem.jobId)
+            if (remindItem.isComplete === true) {
+              return <></>
+            }
+            // console.log('this is a remind item', remindItem)
+            // console.log('THIS IS JOB ID', remindItem.jobId)
 
             let companyName = ''
             let foundJobObj = currentData.find((jobItem) => {
@@ -58,12 +48,15 @@ const Home = () => {
             if (foundJobObj) {
               companyName = foundJobObj.companyName
             }
-
             return (
               <ReminderItem
                 companyName={companyName}
                 remindText={remindItem.reminderText}
-                // applicationStatus={currentData.applicationStatus}
+                id={remindItem._id}
+                jobId={remindItem.jobId}
+                completed={() => {
+                  getRemindersData()
+                }}
               />
             )
           })}
@@ -75,7 +68,7 @@ const Home = () => {
       <div>
         <ul className="job-card">
           {currentData.map((jobItem) => {
-            console.log(jobItem)
+            // console.log(jobItem)
             return (
               <JobCard
                 id={jobItem._id}

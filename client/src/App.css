@@ -105,6 +105,10 @@
   margin: auto 20px;
 }
 
+.circle-btn:hover {
+  background-color: #8897A9;
+}
+
 html {
   background-image: linear-gradient(to top, rgb(246, 241, 241), white);
 }
@@ -114,4 +118,3 @@ html {
   font-size: 30px;
   margin: 10px auto 10px 10px;
   }
-

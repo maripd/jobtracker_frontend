@@ -94,7 +94,6 @@ const EditJob = () => {
 
   return (
     <div className="main-container">
-      <header>Mari</header>
       <form>
         <h3>Edit Job</h3>
         <input

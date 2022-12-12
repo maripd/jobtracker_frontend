@@ -5,6 +5,8 @@ import { useState } from 'react'
 import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
+import deleteImg from './material-symbols_delete-outline.svg'
+import editImg from './material-symbols_edit.svg'
 
 const JobDetails = (props) => {
   const navigate = useNavigate()
@@ -90,7 +92,6 @@ const JobDetails = (props) => {
 
   return (
     <div>
-      <header>Mari</header>
       <div className="main-container">
         <div className="jobdetails-container">
           <section>
@@ -107,10 +108,10 @@ const JobDetails = (props) => {
             </div>
             <div className="editdelete-btns">
               <span onClick={deletebtnHandleClick} className="deletebtn">
-                delete
+                <img src={deleteImg} />
               </span>
               <span onClick={editHandleClick} className="editbtn">
-                edit
+                <img src={editImg} />
               </span>
             </div>
 

@@ -39,12 +39,12 @@ const CreateJob = () => {
   }
 
   const companyNameHandleChange = async (e) => {
-    setCompanyName(e.target.value)
+    setCompanyName(e.target.value.toUpperCase())
     console.log(e.target.value, 'company name text')
   }
 
   const jobTitleHandleChange = async (e) => {
-    setJobTitle(e.target.value)
+    setJobTitle(e.target.value.toUpperCase())
     console.log(e.target.value, 'job title text')
   }
   const hiringStatusHandleChange = async (e) => {
@@ -60,11 +60,11 @@ const CreateJob = () => {
     console.log(e.target.value, 'date applied text')
   }
   const applicationStatusHandleChange = async (e) => {
-    setApplicationStatus(e.target.value)
+    setApplicationStatus(e.target.value.toUpperCase())
     console.log(e.target.value, 'application status text')
   }
   const contactEmailHandleChange = async (e) => {
-    setJobListingEmail(e.target.value)
+    setJobListingEmail(e.target.value.toUpperCase())
     console.log(e.target.value, 'joblisting email text')
   }
   const notesHandleChange = async (e) => {
@@ -79,7 +79,6 @@ const CreateJob = () => {
   console.log(currentCompanyName)
   return (
     <div className="main-container">
-      <header>Mari</header>
       <form>
         <h3>Create Job</h3>
         <input

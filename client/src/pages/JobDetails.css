@@ -65,22 +65,22 @@ span {
 
 
 .topsection {
-  background-color: #b3c3cb;
   padding: 5px;
 }
 
 
 .companyname {
-  margin: 2% auto;
+  margin: 0 auto;
+  font-family: sans-serif;
 }
 
 .editdelete-btns {
   display: flex;
   justify-content: right;
+  margin: auto 15px;
 }
 
 .deletebtn, .editbtn {
-  background-color: #b3c3cb;
   padding: 5px;
   margin: auto 3px;
   border-radius: 3px;
@@ -120,7 +120,7 @@ span {
   display: none;
 }
 
-/* .plus-reminder {
+.plus-reminder {
  border: 1px solid #8897A9;
   padding: 5px 7px;
   border-radius: 10%;
@@ -136,13 +136,7 @@ span {
   padding: 5px;
   font-family: serif;
 }
-.circle-reminder {
-  border: 2px solid #6a7889;
-  width: 10px;
-  height: 10px;
-  border-radius: 30px;
-}
 
 html {
   background-image: linear-gradient(to top, rgb(199, 206, 208), rgb(255, 255, 255));
-} */
+}
