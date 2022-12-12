@@ -13,9 +13,7 @@ const JobDetails = (props) => {
   let { id } = useParams()
   const [currentData, setData] = useState([])
   const [currentDisplay, setDisplay] = useState(false)
-  // const [currentJobId, setJobId] = useState('')
   const [currentReminderText, setReminderText] = useState('')
-  // const [currentIsComplete, setIsComplete] = useState('')
   const [currentAllReminders, setAllReminders] = useState([])
 
   console.log(`This is JOBID`, id)
@@ -107,64 +105,69 @@ const JobDetails = (props) => {
               </p>
             </div>
             <div className="editdelete-btns">
-              <span onClick={deletebtnHandleClick} className="deletebtn">
-                <img src={deleteImg} />
-              </span>
+              <h2 className="companyname">{currentData.companyName}</h2>
               <span onClick={editHandleClick} className="editbtn">
                 <img src={editImg} />
+              </span>
+              <span onClick={deletebtnHandleClick} className="deletebtn">
+                <img src={deleteImg} />
               </span>
             </div>
 
             <div className="secondmain-container">
               <div className="topsection">
-                <h2 className="companyname">{currentData.companyName}</h2>
                 <div className="titlelink-container">
                   <h4 className="job-title">{currentData.jobTitle}</h4>
                   <div className="job-link">
-                    <a href={currentData.urls}>Job Link</a>
+                    <a href={currentData.urls}>JOB LINK</a>
                   </div>
                 </div>
 
-                <div className="span-container">
-                  <span>{currentData.hiringStatus}</span>
+                <div className="outerlayer-bar">
+                  <div className="innerlayer-colorbar">
+                    <div className="appstatus">
+                      {currentData.applicationStatus}
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <ul className="reminderitem-container">
+                    {currentAllReminders.map((reminderItem) => {
+                      console.log(reminderItem)
+                      return (
+                        <li className="reminder-item">
+                          <div className="circlebtn-map"></div>
+                          {reminderItem.reminderText}
+                        </li>
+                      )
+                    })}
+                  </ul>
+                </div>
+
+                <div className="inputplus-container">
+                  <input
+                    onChange={inputHandleChange}
+                    type="text"
+                    placeholder="Add reminder"
+                    className="reminder-inputbox"
+                  />
+                  <span
+                    onClick={addReminderHandleClick}
+                    className="plus-reminder"
+                  >
+                    +
+                  </span>
+                </div>
+
+                <div className="spancontainer-jobdetail">
+                  <span>Hiring Status: {currentData.hiringStatus}</span>
                   <span>Date added: {currentData.jobDateAdded}</span>
                   <span>Date applied: {currentData.dateApplied}</span>
-                  <span>
-                    Application Status: {currentData.applicationStatus}
-                  </span>
+
                   <span>{currentData.contactEmail}</span>
                 </div>
               </div>
-
-              <div className="reminders-container">
-                {/* <span className="circle-reminder"></span> */}
-                <input
-                  onChange={inputHandleChange}
-                  type="text"
-                  placeholder="type reminder"
-                  className="reminder-inputbox"
-                />
-                <span
-                  onClick={addReminderHandleClick}
-                  className="plus-reminder"
-                >
-                  +
-                </span>
-              </div>
-
-              <div>
-                <ul>
-                  {currentAllReminders.map((reminderItem) => {
-                    console.log(reminderItem)
-                    return (
-                      <li className="reminder-item">
-                        {reminderItem.reminderText}
-                      </li>
-                    )
-                  })}
-                </ul>
-              </div>
-
               <div className="notes-container">
                 <p>Notes:</p>
                 <span>{currentData.notes}</span>

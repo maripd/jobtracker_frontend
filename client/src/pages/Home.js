@@ -24,9 +24,9 @@ const Home = () => {
       // console.log('This is the DATA that I need!', response.data.allJobs)
       // console.log('COMPANY NAME', response.data.allJobs)
       setData(response.data.allJobs)
+      getRemindersData()
     }
     getJobData()
-    getRemindersData()
   }, [])
 
   return (
@@ -42,10 +42,12 @@ const Home = () => {
 
             let companyName = ''
             let foundJobObj = currentData.find((jobItem) => {
-              return jobItem.id === remindItem.jobId
+              console.log('job and reminder id', jobItem.id, remindItem.jobId)
+              return jobItem._id === remindItem.jobId
             })
 
             if (foundJobObj) {
+              console.log('FOUND OBJ', foundJobObj)
               companyName = foundJobObj.companyName
             }
             return (

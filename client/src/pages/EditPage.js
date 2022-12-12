@@ -39,7 +39,8 @@ const EditJob = () => {
     getDataById()
   }, [])
 
-  const submitHandleClick = async () => {
+  const submitHandleClick = async (e) => {
+    e.preventDefault()
     const response = await axios.put(`http://localhost:3001/updatejob/${id}`, {
       companyName: currentCompanyName,
       jobTitle: currentJobTitle,
@@ -51,6 +52,7 @@ const EditJob = () => {
       notes: currentNotes,
       urls: currentUrls
     })
+
     navigate(-1)
   }
 

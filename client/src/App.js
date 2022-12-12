@@ -6,12 +6,19 @@ import EditPage from './pages/EditPage'
 import SignIn from './pages/SignIn'
 import JobCard from './components/JobCard'
 import { Routes, Route } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const App = () => {
+  const navigate = useNavigate()
+  const handleClick = (e) => {
+    navigate('/')
+  }
   return (
     <div>
       <div className="header-container">
-        <div className="user-name">MARI</div>
+        <div className="user-name" onClick={handleClick}>
+          MARI
+        </div>
         <div className="signout-btn">SIGN OUT</div>
       </div>
       <Routes>

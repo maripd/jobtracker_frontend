@@ -1,5 +1,5 @@
 import createjob from './createjob.css'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
 import { useState } from 'react'
 import React from 'react'
@@ -18,8 +18,10 @@ const CreateJob = () => {
   const [currentIsComplete, setIsComplete] = useState(Boolean)
 
   let { id } = useParams()
+  const navigate = useNavigate()
 
   const submitHandleClick = async (e) => {
+    e.preventDefault()
     console.log('submit button was clicked!')
     const response = await axios.post('http://localhost:3001/createjob', {
       companyName: currentCompanyName,
@@ -32,10 +34,11 @@ const CreateJob = () => {
       notes: currentNotes,
       urls: currentUrls
     })
-    const res = await axios.post('http://localhost:3001/createreminder', {
-      reminderText: currentReminders,
-      isComplete: currentIsComplete
-    })
+    // const res = await axios.post('http://localhost:3001/createreminder', {
+    //   reminderText: currentReminders,
+    //   isComplete: currentIsComplete
+    // })
+    navigate(-1)
   }
 
   const companyNameHandleChange = async (e) => {

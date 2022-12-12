@@ -11,8 +11,8 @@
 
 .secondmain-container {
   /* border: 1px solid rgba(182, 194, 212, 0.767); */
-  margin: 10px auto;
-  padding: 20px;
+  margin: 0 auto;
+  padding: 0 20px;
   border-radius: 4px;
   /* background-color: #c8d5d6; */
 }
@@ -23,23 +23,31 @@
 }
 
 .job-link {
-  padding: 2px 10px;
-  border: 1px solid rgb(193, 193, 209);
-  background-color: rgb(208, 208, 227);
+  padding: 5px 10px;
+  background-color:#8897A9;;
   height: 12px;
   margin-left: 8px;
-  border-radius: 6px;
+  border-radius: 10px;
   font-size: 10px;
+}
 
+a {
+  text-decoration: none;
+  color: white;
 }
 
 .job-title {
- font-size: 12px;
+ margin: 0 auto;
+ color: #8897A9;
+ font-weight: 500;
+ font-size: 19px;
 }
 
-.span-container {
+.spancontainer-jobdetail {
   display: flex;
   flex-direction: column;
+  border: 1px solid black;
+
 }
 
 
@@ -52,12 +60,12 @@ span {
 .notes-container {
   height: 100px;
   margin: 10px auto;
-  width: 100%;
+  width: 85%;
   background-color: #b3c3cb;
 }
 
 .url-container {
-  
+  width: 85%;
   height: 100px;
   margin: 5px auto;
   background-color: #b3c3cb;
@@ -70,14 +78,15 @@ span {
 
 
 .companyname {
-  margin: 0 auto;
+  margin: 25px 105px 10px 0;
   font-family: sans-serif;
+  font-size: 25px;
 }
 
 .editdelete-btns {
   display: flex;
   justify-content: right;
-  margin: auto 15px;
+  margin: 0 15px;
 }
 
 .deletebtn, .editbtn {
@@ -87,14 +96,16 @@ span {
   font-size: 10px;
 }
 .popup-box {
-  background-color: #c8d5d6;
+  background-color: #CAD5DC;
   border: 1px solid rgb(181, 179, 179);
   position: absolute;
   z-index: 20;
   border-radius: 5px;
   top: 200px;
-  width: 250px;
+  width: 380px;
   padding: 12px;
+  opacity: .8;
+  height: 129px;
 }
 
 .popup-text {
@@ -121,22 +132,116 @@ span {
 }
 
 .plus-reminder {
- border: 1px solid #8897A9;
-  padding: 5px 7px;
   border-radius: 10%;
-  font-size: 16px;
+  font-size: 20px;
+  color: #8897a9;
+  margin: 0;
+  width: 0;
 }
+
+
+
+
 .reminder-inputbox {
-  background-color: #B3C3CB;
   border: none;
-  width:250px;
-  margin-right: 9px;
-  border-bottom: 1px solid #6a7889;
+  width:295px;
+  margin-right: -11px;
+  border-bottom: 1px solid #8897a9;
   font-size: 10px;
-  padding: 5px;
+  padding: 10px;
   font-family: serif;
+  background-color: #8897a900;
 }
 
 html {
-  background-image: linear-gradient(to top, rgb(199, 206, 208), rgb(255, 255, 255));
+  background-image: linear-gradient(to top, rgb(228, 228, 228), rgb(255, 255, 255));
+}
+
+.outerlayer-bar {
+  height: 18px;
+  width: 95%;
+  margin: 14px auto;
+  border-radius: 10px;
+  background-color: rgb(231, 232, 233);
+}
+
+.innerlayer-colorbar {
+  height: 18px;
+  width: 40%;
+  border-radius: 10px;
+  background-color: #C8C7D5;
+}
+
+.appstatus {
+  
+  font-size: 11px;
+}
+
+.reminder-item {
+    list-style-type: none;
+    flex-direction: row;
+    display: flex;
+    margin: 10px auto;
+    background-color: #CAD5DC;
+    /* padding: 10px; */
+    padding: 17px;
+    border-radius: 20px;
+    font-family: sans-serif;
+    font-size: 14px;
+  }
+  
+
+
+.reminderitem-container {
+  display: block;
+  width: 300px;
+  text-align: left;
+  padding: 0;
+  margin: 30px auto;
+}
+/* 
+.mainremind-container {
+  display: flex;
+  margin: 15px auto;
+  width: 330px;
+  background-color: #CAD5DC;
+  border-radius: 20px;
+  height: 55px;
+} */
+
+/* .reminder-text {
+  margin: 4px 0;
+  font-size: 10px;
+} */
+
+/* 
+.reminddetail-company {
+  font-weight: bold;
+  font-size: 14px;
+  flex-direction: column;
+  margin: 0;
+  font-family:  sans-serif;
+} */
+
+
+.circlebtn-map {
+  border: 3px solid #6a7889;
+  width: 10px;
+  height: 10px;
+  border-radius: 30px;
+  margin: auto 20px;
+}
+
+.circlebtn-map:hover {
+  background-color: #8897A9;
+}
+
+.inputplus-container {
+  display: flex;
+  flex-direction: column;
+  
+}
+
+html {
+  background-image: linear-gradient(to top, rgb(215, 217, 218), white);
 }
