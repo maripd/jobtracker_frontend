@@ -40,8 +40,8 @@ const Home = () => {
   return (
     <div className="main-container">
       <div className="header-container">
-        <div className="user-name">Mari</div>
-        <div className="signout-btn">Sign Out</div>
+        <div className="user-name">MARI</div>
+        <div className="signout-btn">SIGN OUT</div>
       </div>
 
       <div className="reminders-box">

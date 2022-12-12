@@ -46,15 +46,9 @@
   flex-direction: row; 
 }
 
-.user-name {
-  font-size: 20px;
-  margin: 10px auto 10px 10px;
-}
-
 .signout-btn {
-  margin: 10px 10px 10px auto;
+  margin: 20px 10px 10px auto;
   font-size: 12px;
-  vertical-align: middle;
 }
 
 .reminders-box {
@@ -114,3 +108,10 @@
 html {
   background-image: linear-gradient(to top, rgb(246, 241, 241), white);
 }
+
+.user-name {
+  font-family: serif;
+  font-size: 30px;
+  margin: 10px auto 10px 10px;
+  }
+

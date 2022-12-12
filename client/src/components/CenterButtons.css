@@ -1,7 +1,7 @@
 .centerbtns-container {
   display: flex;
   justify-content: space-between;
-  margin: 10px 10px;
+  margin: 10px 20px;
 }
 
 .addjob-btncontainer, .threecenter-btns {
@@ -21,4 +21,14 @@
 #sort-icon {
   width: 24px;
   margin: auto 3px;
+}
+
+.addjob-btn {
+  color: #C8C7D5;
+  background-color: rgb(24, 25, 25);
+  border-radius: 6px;
+  border: none;
+  padding: 6px 10px;
+  font-family: sans-serif;
+  font-size: 12px;
 }
