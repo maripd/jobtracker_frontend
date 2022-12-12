@@ -92,11 +92,6 @@ const EditJob = () => {
     console.log(e.target.value, 'urls text')
   }
 
-  const remindersHandleChange = async (e) => {
-    setReminders(e.target.value)
-    console.log(e.target.value, 'reminders content')
-  }
-
   return (
     <div className="main-container">
       <header>Mari</header>
@@ -150,13 +145,6 @@ const EditJob = () => {
           className="form-item"
           type="email"
           placeholder="job listing email"
-        />
-        <textarea
-          value={currentReminders}
-          onChange={(e) => remindersHandleChange(e, 'reminders')}
-          className="form-item"
-          id="textarea-reminder"
-          placeholder="Reminders"
         />
         <textarea
           value={currentNotes}

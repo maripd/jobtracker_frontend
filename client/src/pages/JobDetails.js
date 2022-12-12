@@ -5,12 +5,17 @@ import { useState } from 'react'
 import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
+import ReminderList from '../components/ReminderList'
 
 const JobDetails = (props) => {
   const navigate = useNavigate()
   let { id } = useParams()
   const [currentData, setData] = useState([])
   const [currentDisplay, setDisplay] = useState(false)
+  // const [currentJobId, setJobId] = useState('')
+  const [currentReminderText, setReminderText] = useState('')
+  // const [currentIsComplete, setIsComplete] = useState('')
+  const [currentAllReminders, setAllReminders] = useState([])
 
   console.log(`This is JOBID`, id)
   useEffect(() => {
@@ -23,6 +28,20 @@ const JobDetails = (props) => {
     }
     getJobData()
   }, [])
+
+  useEffect(() => {
+    const getAllRemindersByJobId = async () => {
+      const response = await axios.get(
+        `http://localhost:3001/getallreminders-job/${id}`
+      )
+      console.log(
+        'This is the ALL REMINDERS BY ID DATA',
+        response.data.allReminders
+      )
+      setAllReminders(response.data.allReminders)
+    }
+    getAllRemindersByJobId()
+  }, [currentReminderText])
 
   const editHandleClick = () => {
     navigate(`/editpage/${id}`)
@@ -54,6 +73,22 @@ const JobDetails = (props) => {
     const response = await axios.delete(`http://localhost:3001/deletejob/${id}`)
     navigate('/')
   }
+
+  const addReminderHandleClick = async (e) => {
+    const response = await axios.post('http://localhost:3001/createreminder', {
+      jobId: id,
+      reminderText: currentReminderText,
+      isComplete: false
+    })
+    console.log('THIS IS RESPONSE DATA REMINDER', response.data)
+    setReminderText('')
+  }
+
+  const inputHandleChange = (e) => {
+    setReminderText(e.target.value)
+    console.log('THIS IS REMINDER TEXT LINE 72', e.target.value)
+  }
+
   return (
     <div>
       <header>Mari</header>
@@ -89,6 +124,7 @@ const JobDetails = (props) => {
                     <a href={currentData.urls}>Job Link</a>
                   </div>
                 </div>
+
                 <div className="span-container">
                   <span>{currentData.hiringStatus}</span>
                   <span>Date added: {currentData.jobDateAdded}</span>
@@ -98,6 +134,35 @@ const JobDetails = (props) => {
                   </span>
                   <span>{currentData.contactEmail}</span>
                 </div>
+              </div>
+
+              <div className="reminders-container">
+                {/* <span className="circle-reminder"></span> */}
+                <input
+                  onChange={inputHandleChange}
+                  type="text"
+                  placeholder="type reminder"
+                  className="reminder-inputbox"
+                />
+                <span
+                  onClick={addReminderHandleClick}
+                  className="plus-reminder"
+                >
+                  +
+                </span>
+              </div>
+
+              <div>
+                <ul>
+                  {currentAllReminders.map((reminderItem) => {
+                    console.log(reminderItem)
+                    return (
+                      <li className="reminder-item">
+                        {reminderItem.reminderText}
+                      </li>
+                    )
+                  })}
+                </ul>
               </div>
 
               <div className="notes-container">

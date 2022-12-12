@@ -1,21 +1,23 @@
 // import { Link } from 'react-router-dom'
 import '../App.css'
-
 import React from 'react'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
 import ReminderList from '../components/ReminderList'
 import JobCard from '../components/JobCard'
 import CenterButtons from '../components/CenterButtonsHome'
 import '../components/CenterButtons.css'
 
 const Home = () => {
+  let { id } = useNavigate()
   const [currentData, setData] = useState([])
   const [currentReminders, setReminders] = useState([])
+  const [currentReminder, setReminder] = useState({})
 
   useEffect(() => {
     const getJobData = async () => {
-      let response = await axios.get('http://localhost:3001/getalljobs')
+      const response = await axios.get('http://localhost:3001/getalljobs')
       console.log('This is the DATA that I need!', response.data.allJobs)
       console.log('COMPANY NAME', response.data.allJobs)
       setData(response.data.allJobs)
@@ -23,9 +25,14 @@ const Home = () => {
     getJobData()
 
     const getRemindersData = async () => {
-      let response = await axios.get('http://localhost:3001/getallreminders')
+      const response = await axios.get('http://localhost:3001/getallreminders')
       console.log('This is the REMINDERS data', response.data.allReminders)
       setReminders(response.data.allReminders)
+      if (id !== undefined) {
+        const res = await axios.get(`http://localhost:3001/getreminder/${id}`)
+        console.log('This is a SINGLE REMINDER', res.data.reminderText)
+        setReminder(res.data.reminderText)
+      }
     }
     getRemindersData()
   }, [])

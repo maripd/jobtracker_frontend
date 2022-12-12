@@ -76,10 +76,6 @@ const CreateJob = () => {
     console.log(e.target.value, 'urls text')
   }
 
-  const remindersHandleChange = async (e) => {
-    setReminders(e.target.value)
-    console.log(e.target.value, 'reminders content')
-  }
   console.log(currentCompanyName)
   return (
     <div className="main-container">
@@ -135,13 +131,7 @@ const CreateJob = () => {
           type="email"
           placeholder="job listing email"
         />
-        <textarea
-          value={currentReminders}
-          onChange={(e) => remindersHandleChange(e, 'reminders')}
-          className="form-item"
-          id="textarea-reminder"
-          placeholder="Reminders"
-        />
+
         <textarea
           value={currentNotes}
           onChange={(e) => notesHandleChange(e, 'notes')}

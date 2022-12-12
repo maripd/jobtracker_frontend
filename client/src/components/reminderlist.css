@@ -1,0 +1,9 @@
+.reminder-container {
+  display: flex;
+  list-style-type: none;
+  
+}
+
+p {
+  flex-direction: column;
+}
