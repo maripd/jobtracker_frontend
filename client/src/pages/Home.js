@@ -4,7 +4,7 @@ import React from 'react'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import ReminderList from '../components/ReminderList'
+import ReminderItem from '../components/ReminderItem'
 import JobCard from '../components/JobCard'
 import CenterButtons from '../components/CenterButtonsHome'
 import '../components/CenterButtons.css'
@@ -48,11 +48,22 @@ const Home = () => {
         <ul className="reminders-container">
           {currentReminders.map((remindItem) => {
             console.log('this is a remind item', remindItem)
+            console.log('THIS IS JOB ID', remindItem.jobId)
+
+            let companyName = ''
+            let foundJobObj = currentData.find((jobItem) => {
+              return jobItem.id === remindItem.jobId
+            })
+
+            if (foundJobObj) {
+              companyName = foundJobObj.companyName
+            }
+
             return (
-              <ReminderList
-                companyName={currentData.companyName}
+              <ReminderItem
+                companyName={companyName}
                 remindText={remindItem.reminderText}
-                applicationStatus={currentData.applicationStatus}
+                // applicationStatus={currentData.applicationStatus}
               />
             )
           })}

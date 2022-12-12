@@ -57,32 +57,60 @@
   vertical-align: middle;
 }
 
-
-
 .reminders-box {
-  margin: 0 3%;
+  margin: 0 auto;
+  display: flex;
 }
 
 
 .reminders-container {
   margin: 10px;
-  background-color: #C8D5D6;
+  /* background-color: #C8D5D6; */
   border-radius: 5px;
   padding: 0;
+  flex-direction: column;
+  width: 330px;
 }
 
 .jobdetails-container {
-  display: flex;
   list-style-type: none;
-  justify-content: space-between;
+  flex-direction: column;
+  display: flex;
+  margin: 10px 0;
 }
 
 .mainremind-container {
   display: flex;
+  margin: 15px auto;
+  width: 330px;
+  background-color: #CAD5DC;
+  border-radius: 20px;
+  height: 55px;
+}
+
+.reminder-text {
+  margin: 4px 0;
+  font-size: 10px;
 }
 
 
+.reminddetail-company {
+  font-weight: bold;
+  font-size: 14px;
+  flex-direction: column;
+  margin: 0;
+  font-family:  sans-serif;
+}
 
-p {
- font-size: 12px;
+
+.circle-btn {
+  border: 3px solid #6a7889;
+  width: 15px;
+  height: 15px;
+  border-radius: 30px;
+  margin: auto 20px;
+}
+
+html {
+  background-image: linear-gradient(to top, rgb(246, 241, 241), white);
 }

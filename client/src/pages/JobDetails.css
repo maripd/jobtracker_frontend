@@ -120,18 +120,10 @@ span {
   display: none;
 }
 
-.reminders-container {
-  display: flex;
-  background-color: #B3C3CB;
-  border-radius: 20px;
-  border: 1px solid #B3C3CB;
-  
-}
-.plus-reminder {
-  /* border: 1px solid #8897A9; */
+/* .plus-reminder {
+ border: 1px solid #8897A9;
   padding: 5px 7px;
   border-radius: 10%;
-  color:#6a7889;
   font-size: 16px;
 }
 .reminder-inputbox {
@@ -153,4 +145,4 @@ span {
 
 html {
   background-image: linear-gradient(to top, rgb(199, 206, 208), rgb(255, 255, 255));
-}
+} */

@@ -5,7 +5,6 @@ import { useState } from 'react'
 import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
-import ReminderList from '../components/ReminderList'
 
 const JobDetails = (props) => {
   const navigate = useNavigate()
