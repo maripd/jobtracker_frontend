@@ -162,7 +162,9 @@ const EditJob = () => {
           id="textarea-urls"
           placeholder="URL"
         />
-        <button onClick={submitHandleClick}>Submit</button>
+        <button className="createjob-btn" onClick={submitHandleClick}>
+          Submit
+        </button>
       </form>
     </div>
   )

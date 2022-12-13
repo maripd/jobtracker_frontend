@@ -7,16 +7,20 @@ import { useParams } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import deleteImg from './material-symbols_delete-outline.svg'
 import editImg from './material-symbols_edit.svg'
+import ReminderItem from '../components/ReminderItem.js'
 
 const JobDetails = (props) => {
   const navigate = useNavigate()
   let { id } = useParams()
+  const [currentJobData, setJobData] = useState([])
   const [currentData, setData] = useState([])
   const [currentDisplay, setDisplay] = useState(false)
   const [currentReminderText, setReminderText] = useState('')
   const [currentAllReminders, setAllReminders] = useState([])
-
+  const [currentReminders, setReminders] = useState([])
+  console.log('THIS IS CURRENT REMINDERS', currentReminders)
   console.log(`This is JOBID`, id)
+
   useEffect(() => {
     const getJobData = async () => {
       if (id !== undefined) {
@@ -28,17 +32,18 @@ const JobDetails = (props) => {
     getJobData()
   }, [])
 
+  const getAllRemindersByJobId = async () => {
+    const response = await axios.get(
+      `http://localhost:3001/getallreminders-job/${id}`
+    )
+    console.log(
+      'This is the ALL REMINDERS BY ID DATA',
+      response.data.allReminders
+    )
+    setAllReminders(response.data.allReminders)
+  }
+
   useEffect(() => {
-    const getAllRemindersByJobId = async () => {
-      const response = await axios.get(
-        `http://localhost:3001/getallreminders-job/${id}`
-      )
-      console.log(
-        'This is the ALL REMINDERS BY ID DATA',
-        response.data.allReminders
-      )
-      setAllReminders(response.data.allReminders)
-    }
     getAllRemindersByJobId()
   }, [currentReminderText])
 
@@ -74,13 +79,13 @@ const JobDetails = (props) => {
   }
 
   const addReminderHandleClick = async (e) => {
+    e.preventDefault()
     const response = await axios.post('http://localhost:3001/createreminder', {
       jobId: id,
       reminderText: currentReminderText,
       isComplete: false
     })
-    console.log('THIS IS RESPONSE DATA REMINDER', response.data)
-    setReminderText('')
+    e.target.value = ''
   }
 
   const inputHandleChange = (e) => {
@@ -95,13 +100,13 @@ const JobDetails = (props) => {
           <section>
             <div className={`popup-box ${panelDisplay}`}>
               <p onClick={xHandleClick} className="x-close">
-                X
+                x
               </p>
               <p className="popup-text">
                 Are you sure you want to remove this item?
               </p>
               <p className="removebtn" onClick={realDeleteHandleClick}>
-                Delete
+                DELETE
               </p>
             </div>
             <div className="editdelete-btns">
@@ -135,11 +140,19 @@ const JobDetails = (props) => {
                   <ul className="reminderitem-container">
                     {currentAllReminders.map((reminderItem) => {
                       console.log(reminderItem)
+                      if (reminderItem.isComplete === true) {
+                        return <></>
+                      }
+
                       return (
-                        <li className="reminder-item">
-                          <div className="circlebtn-map"></div>
-                          {reminderItem.reminderText}
-                        </li>
+                        <ReminderItem
+                          remindText={reminderItem.reminderText}
+                          id={reminderItem._id}
+                          jobId={reminderItem.jobId}
+                          completed={() => {
+                            getAllRemindersByJobId()
+                          }}
+                        />
                       )
                     })}
                   </ul>

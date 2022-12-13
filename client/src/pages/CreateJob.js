@@ -41,6 +41,11 @@ const CreateJob = () => {
     navigate(-1)
   }
 
+  const dropdownHandleClick = (e) => {
+    e.preventDefault()
+    console.log('THIS IS APPLICATION STATUS', e.target.value)
+  }
+
   const companyNameHandleChange = async (e) => {
     setCompanyName(e.target.value.toUpperCase())
     console.log(e.target.value, 'company name text')
@@ -62,10 +67,10 @@ const CreateJob = () => {
     setDateApplied(e.target.value)
     console.log(e.target.value, 'date applied text')
   }
-  const applicationStatusHandleChange = async (e) => {
-    setApplicationStatus(e.target.value.toUpperCase())
-    console.log(e.target.value, 'application status text')
-  }
+  // const applicationStatusHandleClick = async (e) => {
+  //   setApplicationStatus(e.target.value.toUpperCase())
+  //   console.log(e.target.value, 'application status text')
+  // }
   const contactEmailHandleChange = async (e) => {
     setJobListingEmail(e.target.value.toUpperCase())
     console.log(e.target.value, 'joblisting email text')
@@ -83,7 +88,7 @@ const CreateJob = () => {
   return (
     <div className="main-container">
       <form>
-        <h3>Create Job</h3>
+        <h3>CREATE JOB DETAILS</h3>
         <input
           value={currentCompanyName}
           type="text"
@@ -117,7 +122,26 @@ const CreateJob = () => {
           className="form-item"
           placeholder="date applied"
         />
-        <input
+
+        <label for="application-status" id="label">
+          Application Status
+        </label>
+        <select
+          name="application-status"
+          id="dropdown"
+          onClick={currentApplicationStatus}
+        >
+          <option value="applied">APPLIED</option>
+          <option value="phone-interview">PHONE INTERVIEW</option>
+          <option value="hiring-interview">HIRING INTERVIEW</option>
+          <option value="offer">OFFER</option>
+          <option value="rejected">REJECTED</option>
+        </select>
+
+        {/* 
+//////////////////////////////////////////////////////////////////// */}
+
+        {/* <input
           value={currentApplicationStatus}
           type="text"
           onChange={(e) =>
@@ -125,7 +149,10 @@ const CreateJob = () => {
           }
           className="form-item"
           placeholder="application status"
-        />
+        /> */}
+
+        {/* ///////////////////////////////////////////////////////////////////// */}
+
         <input
           value={currentJobListingEmail}
           onChange={(e) => contactEmailHandleChange(e, 'contact email')}
@@ -149,7 +176,9 @@ const CreateJob = () => {
           id="textarea-urls"
           placeholder="URL"
         />
-        <button onClick={submitHandleClick}>Submit</button>
+        <button onClick={submitHandleClick} className="createjob-btn">
+          Submit
+        </button>
       </form>
     </div>
   )
