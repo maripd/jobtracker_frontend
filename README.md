@@ -6,7 +6,7 @@
 
 ## [My Github](https://github.com/maripd) | [My Linkedin](https://www.linkedin.com/in/marissa-dilig-6ba71923a/) | [Trello](https://trello.com/b/A7Rwzhqv/job-tracker-app) | []()
 
-![Job Tracker Project](./screenshot.png)
+![Job Tracker Project](./app_screenshot.png)
 
 ##### **Description**
 
