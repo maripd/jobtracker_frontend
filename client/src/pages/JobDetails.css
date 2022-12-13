@@ -43,32 +43,47 @@ a {
  font-size: 19px;
 }
 
-.spancontainer-jobdetail {
-  display: flex;
-  flex-direction: column;
-  border: 1px solid black;
-
-}
-
-
 span {
   font-size: 12px;
   margin: 3px 0;
 }
 
-
 .notes-container {
   height: 100px;
   margin: 10px auto;
   width: 85%;
-  background-color: #b3c3cb;
+  padding: 10px;
+  background-color: rgb(239, 242, 243);
+  border-radius: 10px;
+  box-shadow: 3px 6px 12px rgb(216, 215, 215);
+  font-family: sans-serif;
+  color: rgb(110, 107, 107);
 }
 
 .url-container {
   width: 85%;
+  padding: 10px;
   height: 100px;
   margin: 5px auto;
-  background-color: #b3c3cb;
+  background-color: rgb(239, 242, 243);
+  border-radius: 10px;
+  box-shadow: 3px 6px 12px rgb(216, 215, 215);
+  font-family: sans-serif;
+  color: rgb(110, 107, 107);
+}
+
+.spancontainer-jobdetail {
+  width: 85%;
+  padding: 10px;
+  height: 100px;
+  margin: 30px auto 0 auto;
+  background-color: rgb(239, 242, 243);
+  border-radius: 10px;
+  box-shadow: 3px 6px 12px rgb(216, 215, 215);
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  color: rgb(110, 107, 107);
 }
 
 
@@ -142,17 +157,6 @@ span {
 
 
 
-.reminder-inputbox {
-  border: none;
-  width:295px;
-  margin-right: -11px;
-  border-bottom: 1px solid #8897a9;
-  font-size: 10px;
-  padding: 10px;
-  font-family: serif;
-  background-color: #8897a900;
-}
-
 html {
   background-image: linear-gradient(to top, rgb(228, 228, 228), rgb(255, 255, 255));
 }
@@ -183,21 +187,22 @@ html {
     display: flex;
     margin: 10px auto;
     background-color: #CAD5DC;
-    /* padding: 10px; */
+    width: 300px;
     padding: 17px;
     border-radius: 20px;
     font-family: sans-serif;
     font-size: 14px;
+    box-shadow: 3px 5px 8px rgb(233, 233, 233);
   }
   
 
 
 .reminderitem-container {
   display: block;
-  width: 300px;
+ 
   text-align: left;
   padding: 0;
-  margin: 30px auto;
+  
 }
 /* 
 .mainremind-container {
@@ -229,19 +234,26 @@ html {
   width: 10px;
   height: 10px;
   border-radius: 30px;
-  margin: auto 20px;
+  margin: auto 10px;
 }
 
 .circlebtn-map:hover {
   background-color: #8897A9;
 }
 
-.inputplus-container {
-  display: flex;
-  flex-direction: column;
-  
-}
 
 html {
-  background-image: linear-gradient(to top, rgb(215, 217, 218), white);
+  background-image: linear-gradient(to top, rgb(222, 222, 223), white);
+}
+
+/* inputbox and plus */
+.reminder-inputbox {
+  border: none;
+  width:330px;
+  margin: auto -11px auto 5px;
+  border-bottom: 1px solid #8897a9;
+  font-size: 10px;
+  padding: 0;
+  font-family: serif;
+  background-color: #8897a900;
 }

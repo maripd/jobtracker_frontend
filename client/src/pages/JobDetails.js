@@ -161,21 +161,22 @@ const JobDetails = (props) => {
                 </div>
 
                 <div className="spancontainer-jobdetail">
-                  <span>Hiring Status: {currentData.hiringStatus}</span>
-                  <span>Date added: {currentData.jobDateAdded}</span>
-                  <span>Date applied: {currentData.dateApplied}</span>
+                  <span className="spandetails">
+                    Hiring Status: {currentData.hiringStatus}
+                  </span>
+                  <span className="spandetails">
+                    Date added: {currentData.jobDateAdded}
+                  </span>
+                  <span className="spandetails">
+                    Date applied: {currentData.dateApplied}
+                  </span>
 
                   <span>{currentData.contactEmail}</span>
                 </div>
               </div>
               <div className="notes-container">
-                <p>Notes:</p>
+                <p>NOTES</p>
                 <span>{currentData.notes}</span>
-              </div>
-
-              <div className="url-container">
-                <p>URLs:</p>
-                <span>{currentData.urls}</span>
               </div>
             </div>
           </section>
