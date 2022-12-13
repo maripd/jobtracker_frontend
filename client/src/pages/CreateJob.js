@@ -13,9 +13,7 @@ const CreateJob = () => {
   const [currentApplicationStatus, setApplicationStatus] = useState('')
   const [currentJobListingEmail, setJobListingEmail] = useState('')
   const [currentNotes, setNotes] = useState('')
-  const [currentReminders, setReminders] = useState('')
   const [currentUrls, setUrls] = useState('')
-  const [currentIsComplete, setIsComplete] = useState(Boolean)
 
   let { id } = useParams()
   const navigate = useNavigate()
@@ -34,57 +32,49 @@ const CreateJob = () => {
       notes: currentNotes,
       urls: currentUrls
     })
-    // const res = await axios.post('http://localhost:3001/createreminder', {
-    //   reminderText: currentReminders,
-    //   isComplete: currentIsComplete
-    // })
+    console.log(currentApplicationStatus)
     navigate(-1)
   }
 
-  const dropdownHandleClick = (e) => {
-    e.preventDefault()
-    console.log('THIS IS APPLICATION STATUS', e.target.value)
-  }
-
-  const companyNameHandleChange = async (e) => {
-    setCompanyName(e.target.value.toUpperCase())
+  const companyNameHandleChange = (e) => {
+    setCompanyName(e.target.value)
     console.log(e.target.value, 'company name text')
   }
 
-  const jobTitleHandleChange = async (e) => {
-    setJobTitle(e.target.value.toUpperCase())
+  const jobTitleHandleChange = (e) => {
+    setJobTitle(e.target.value)
     console.log(e.target.value, 'job title text')
   }
-  const hiringStatusHandleChange = async (e) => {
+  const hiringStatusHandleChange = (e) => {
     setHiringStatus(e.target.value)
     console.log(e.target.value, 'hiring status text')
   }
-  const dateJobAddedHandleChange = async (e) => {
+  const dateJobAddedHandleChange = (e) => {
     setJobDateAdded(e.target.value)
     console.log(e.target.value, 'added job text')
   }
-  const dateAppliedHandleChange = async (e) => {
+  const dateAppliedHandleChange = (e) => {
     setDateApplied(e.target.value)
     console.log(e.target.value, 'date applied text')
   }
-  // const applicationStatusHandleClick = async (e) => {
-  //   setApplicationStatus(e.target.value.toUpperCase())
-  //   console.log(e.target.value, 'application status text')
-  // }
-  const contactEmailHandleChange = async (e) => {
-    setJobListingEmail(e.target.value.toUpperCase())
+  const applicationStatusHandleChange = (e) => {
+    console.log('THIS IS THE VALUE OF APP STATUS', e.target.value)
+    setApplicationStatus(e.target.value)
+  }
+
+  const contactEmailHandleChange = (e) => {
+    setJobListingEmail(e.target.value)
     console.log(e.target.value, 'joblisting email text')
   }
-  const notesHandleChange = async (e) => {
+  const notesHandleChange = (e) => {
     setNotes(e.target.value)
     console.log(e.target.value, 'notes content')
   }
-  const urlsHandleChange = async (e) => {
+  const urlsHandleChange = (e) => {
     setUrls(e.target.value)
     console.log(e.target.value, 'urls text')
   }
 
-  console.log(currentCompanyName)
   return (
     <div className="main-container">
       <form>
@@ -123,25 +113,40 @@ const CreateJob = () => {
           placeholder="date applied"
         />
 
-        <label for="application-status" id="label">
-          Application Status
-        </label>
         <select
           name="application-status"
           id="dropdown"
-          onClick={currentApplicationStatus}
+          onChange={applicationStatusHandleChange}
+          value={currentApplicationStatus}
         >
-          <option value="applied">APPLIED</option>
-          <option value="phone-interview">PHONE INTERVIEW</option>
-          <option value="hiring-interview">HIRING INTERVIEW</option>
-          <option value="offer">OFFER</option>
-          <option value="rejected">REJECTED</option>
+          <option> SELECT APPLICATION STATUS</option>
+          <option name="applied" value="applied">
+            APPLIED
+          </option>
+          <option name="phoneinterview" value="phoneinterview">
+            PHONE INTERVIEW
+          </option>
+          <option name="hiringinterview" value="hiringstatus">
+            HIRING INTERVIEW
+          </option>
+          <option name="joboffer" value="joboffer">
+            JOB OFFER
+          </option>
+          <option name="rejected" value="rejected">
+            REJECTED
+          </option>
+          <option name="ghosting" value="ghosting">
+            GHOSTING
+          </option>
         </select>
 
-        {/* 
-//////////////////////////////////////////////////////////////////// */}
+        {/* <option value="applied">APPLIED</option>
+          <option value="phone-interview">PHONE INTERVIEW</option>
+          <option value="hiring-interview">HIRING INTERVIEW</option>
+          <option value="offer">JOB OFFER</option>
+          <option value="rejected">REJECTED</option> 
 
-        {/* <input
+        <input
           value={currentApplicationStatus}
           type="text"
           onChange={(e) =>
@@ -151,8 +156,6 @@ const CreateJob = () => {
           placeholder="application status"
         /> */}
 
-        {/* ///////////////////////////////////////////////////////////////////// */}
-
         <input
           value={currentJobListingEmail}
           onChange={(e) => contactEmailHandleChange(e, 'contact email')}
@@ -160,7 +163,6 @@ const CreateJob = () => {
           type="email"
           placeholder="job listing email"
         />
-
         <textarea
           value={currentNotes}
           onChange={(e) => notesHandleChange(e, 'notes')}

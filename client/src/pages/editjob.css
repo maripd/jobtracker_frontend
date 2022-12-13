@@ -4,3 +4,7 @@
   color: white;
   border: none;
 }
+
+html {
+  background-image: linear-gradient(to top, rgb(236, 237, 239), white);
+}

@@ -1,17 +1,19 @@
-const SignUp = () => {
-  return (
-    <div>
-      <header>Mari</header>
-      <form>
-        <input placeholder="name" />
-        <input placeholder="username" />
-        <input placeholder="email" />
-        <input placeholder="password" />
-        <input placeholder="confirm password" />
-        <button>Submit</button>
-      </form>
-    </div>
-  )
-}
+// import './SignUp.css'
 
-export default SignUp
+// const SignUp = () => {
+//   return (
+//     <div>
+//       <header>Mari</header>
+//       <form>
+//         <input placeholder="name" />
+//         <input placeholder="username" />
+//         <input placeholder="email" />
+//         <input placeholder="password" />
+//         <input placeholder="confirm password" />
+//         <button className="signup-btn">Submit</button>
+//       </form>
+//     </div>
+//   )
+// }
+
+// export default SignUp

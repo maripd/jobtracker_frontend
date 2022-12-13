@@ -19,10 +19,12 @@ const JobCard = (props) => {
           {props.jobTitle}
         </span>
         <span class="jobcard-detail">{props.hiringStatus}</span>
-        <span class="jobcard-detail">{props.applicationStatus}</span>
         <span class="jobcard-detail">{props.statusBar}</span>
+
         <div className="status-bar">
-          <div className="statusbar-level">APPLIED</div>
+          <div className={props.applicationStatus}>
+            {props.applicationStatus}
+          </div>
         </div>
       </li>
     </div>

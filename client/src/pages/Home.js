@@ -12,6 +12,7 @@ import '../components/CenterButtons.css'
 const Home = () => {
   const [currentData, setData] = useState([])
   const [currentReminders, setReminders] = useState([])
+  const [currentApplicationStatus, setApplicationStatus] = useState('')
   console.log('THIS IS CURRENT REMINDERS', currentReminders)
   const getRemindersData = async () => {
     const response = await axios.get('http://localhost:3001/getallreminders')
@@ -70,7 +71,6 @@ const Home = () => {
       <div>
         <ul className="job-card">
           {currentData.map((jobItem) => {
-            // console.log(jobItem)
             return (
               <JobCard
                 id={jobItem._id}

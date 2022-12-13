@@ -17,7 +17,7 @@ const CenterButtons = () => {
         </button>
       </div>
       <div className="threecenter-btns">
-        <img src={search} id="search-icon" />
+        {/* <img src={search} id="search-icon" /> */}
         <img src={filter} id="filter-icon" />
         <img src={sort} id="sort-icon" />
       </div>

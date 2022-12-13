@@ -4,8 +4,11 @@ form {
   flex-direction: column;
 }
 
+form {
+  background-color: white;
+}
+
 h3 {
-  margin: 50px auto 20px auto;
   text-align: center;
   font-family: sans-serif;
   font-size: 14px;
@@ -36,7 +39,7 @@ header {
 }
 
  html {
-  background-image: linear-gradient(to top, #eff7f7, white);
+  background-image: linear-gradient(to top, #dbe0e0, white);
 }
 
 .createjob-btn {
@@ -59,7 +62,7 @@ header {
 #dropdown {
   margin: 5px 10px;
   padding: 10px;
-  color: gray;
+  color: #8897A9;
   border: none;
   border-bottom: 1px solid #8897A9;
   font-family: sans-serif;

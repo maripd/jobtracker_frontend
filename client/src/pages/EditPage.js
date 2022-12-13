@@ -77,10 +77,11 @@ const EditJob = () => {
     setDateApplied(e.target.value)
     console.log(e.target.value, 'date applied text')
   }
-  const applicationStatusHandleChange = async (e) => {
+  const applicationStatusHandleChange = (e) => {
+    console.log('THIS IS THE VALUE OF APP STATUS', e.target.value)
     setApplicationStatus(e.target.value)
-    console.log(e.target.value, 'application status text')
   }
+
   const contactEmailHandleChange = async (e) => {
     setJobListingEmail(e.target.value)
     console.log(e.target.value, 'joblisting email text')
@@ -131,15 +132,34 @@ const EditJob = () => {
           className="form-item"
           placeholder="date applied"
         />
-        <input
+
+        <select
+          name="application-status"
+          id="dropdown"
+          onChange={applicationStatusHandleChange}
           value={currentApplicationStatus}
-          type="text"
-          onChange={(e) =>
-            applicationStatusHandleChange(e, 'application status')
-          }
-          className="form-item"
-          placeholder="application status"
-        />
+        >
+          <option> SELECT APPLICATION STATUS</option>
+          <option name="applied" value="applied">
+            APPLIED
+          </option>
+          <option name="phoneinterview" value="phoneinterview">
+            PHONE INTERVIEW
+          </option>
+          <option name="hiringinterview" value="hiring">
+            HIRING INTERVIEW
+          </option>
+          <option name="joboffer" value="job offer">
+            JOB OFFER
+          </option>
+          <option name="rejected" value="rejected">
+            REJECTED
+          </option>
+          <option name="ghosting" value="ghosting">
+            GHOSTING
+          </option>
+        </select>
+
         <input
           value={currentJobListingEmail}
           onChange={(e) => contactEmailHandleChange(e, 'contact email')}

@@ -85,7 +85,8 @@ const JobDetails = (props) => {
       reminderText: currentReminderText,
       isComplete: false
     })
-    e.target.value = ''
+    navigate('/')
+    // e.target.value = ''
   }
 
   const inputHandleChange = (e) => {
@@ -129,10 +130,8 @@ const JobDetails = (props) => {
                 </div>
 
                 <div className="outerlayer-bar">
-                  <div className="innerlayer-colorbar">
-                    <div className="appstatus">
-                      {currentData.applicationStatus}
-                    </div>
+                  <div className={currentData.applicationStatus}>
+                    <div>{currentData.applicationStatus}</div>
                   </div>
                 </div>
 
