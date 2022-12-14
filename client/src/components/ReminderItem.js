@@ -4,17 +4,16 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { renderMatches, useParams } from 'react-router-dom'
 
+const BASE_URL = 'https://marijobtracker.herokuapp.com/'
+
 const ReminderItem = (props) => {
   const completeHandleClick = async (e) => {
     console.log(props.id)
-    const response = await axios.put(
-      `http://localhost:3001/updatereminder/${props.id}`,
-      {
-        isComplete: true,
-        reminderText: props.remindText,
-        jobId: props.jobId
-      }
-    )
+    const response = await axios.put(`${BASE_URL}/updatereminder/${props.id}`, {
+      isComplete: true,
+      reminderText: props.remindText,
+      jobId: props.jobId
+    })
     //definition getremindersdata is called from home line 65
     props.completed()
   }

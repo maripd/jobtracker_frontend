@@ -4,6 +4,8 @@ import axios from 'axios'
 import { useState } from 'react'
 import React from 'react'
 
+const BASE_URL = 'https://marijobtracker.herokuapp.com/'
+
 const CreateJob = () => {
   const [currentCompanyName, setCompanyName] = useState('')
   const [currentJobTitle, setJobTitle] = useState('')
@@ -21,7 +23,7 @@ const CreateJob = () => {
   const submitHandleClick = async (e) => {
     e.preventDefault()
     console.log('submit button was clicked!')
-    const response = await axios.post('http://localhost:3001/createjob', {
+    const response = await axios.post(`${BASE_URL}/createjob`, {
       companyName: currentCompanyName,
       jobTitle: currentJobTitle,
       hiringStatus: currentHiringStatus,

@@ -20,22 +20,21 @@ const JobDetails = (props) => {
   const [currentReminders, setReminders] = useState([])
   console.log('THIS IS CURRENT REMINDERS', currentReminders)
   console.log(`This is JOBID`, id)
+  const BASE_URL = 'https://marijobtracker.herokuapp.com/'
 
   useEffect(() => {
     const getJobData = async () => {
       if (id !== undefined) {
-        let response = await axios.get(`http://localhost:3001/getjobcard/${id}`)
+        let response = await axios.get(`${BASE_URL}/getjobcard/${id}`)
         console.log('THIS IS THE DATA!!', response.data.jobCardItem)
         setData(response.data.jobCardItem)
       }
     }
     getJobData()
-  }, [currentReminders])
+  }, [])
 
   const getAllRemindersByJobId = async () => {
-    const response = await axios.get(
-      `http://localhost:3001/getallreminders-job/${id}`
-    )
+    const response = await axios.get(`${BASE_URL}/getallreminders-job/${id}`)
     console.log(
       'This is the ALL REMINDERS BY ID DATA',
       response.data.allReminders
@@ -52,7 +51,7 @@ const JobDetails = (props) => {
   }
 
   const deleteHandleClick = async () => {
-    const response = await axios.delete(`http://localhost:3001/deletejob/${id}`)
+    const response = await axios.delete(`${BASE_URL}/deletejob/${id}`)
     navigate('/')
   }
 
@@ -74,13 +73,13 @@ const JobDetails = (props) => {
   }
 
   const realDeleteHandleClick = async (e) => {
-    const response = await axios.delete(`http://localhost:3001/deletejob/${id}`)
+    const response = await axios.delete(`${BASE_URL}/deletejob/${id}`)
     navigate('/')
   }
 
   const addReminderHandleClick = async (e) => {
     e.preventDefault()
-    const response = await axios.post('http://localhost:3001/createreminder', {
+    const response = await axios.post(`${BASE_URL}/createreminder`, {
       jobId: id,
       reminderText: currentReminderText,
       isComplete: false

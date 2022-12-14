@@ -8,6 +8,7 @@ import ReminderItem from '../components/ReminderItem'
 import JobCard from '../components/JobCard'
 import CenterButtons from '../components/CenterButtonsHome'
 import '../components/CenterButtons.css'
+const BASE_URL = 'https://marijobtracker.herokuapp.com/'
 
 const Home = () => {
   const [currentData, setData] = useState([])
@@ -15,13 +16,13 @@ const Home = () => {
   const [currentApplicationStatus, setApplicationStatus] = useState('')
   console.log('THIS IS CURRENT REMINDERS', currentReminders)
   const getRemindersData = async () => {
-    const response = await axios.get('http://localhost:3001/getallreminders')
+    const response = await axios.get(`${BASE_URL}/getallreminders`)
     // console.log('This is the REMINDERS data', response.data.allReminders)
     setReminders(response.data.allReminders)
   }
   useEffect(() => {
     const getJobData = async () => {
-      const response = await axios.get('http://localhost:3001/getalljobs')
+      const response = await axios.get(`${BASE_URL}/getalljobs`)
       // console.log('This is the DATA that I need!', response.data.allJobs)
       // console.log('COMPANY NAME', response.data.allJobs)
       setData(response.data.allJobs)

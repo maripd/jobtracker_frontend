@@ -4,6 +4,7 @@ import axios from 'axios'
 import { useParams } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import React from 'react'
+const BASE_URL = 'https://marijobtracker.herokuapp.com/'
 
 const EditJob = () => {
   const navigate = useNavigate()
@@ -23,7 +24,7 @@ const EditJob = () => {
 
   useEffect(() => {
     const getDataById = async () => {
-      const response = await axios.get(`http://localhost:3001/getjobcard/${id}`)
+      const response = await axios.get(`${BASE_URL}/getjobcard/${id}`)
       console.log('EDIT PAGE BY ID', response.data)
       setData('THIS IS EDIT PAGE DATA!', response.data.editJobCard)
       setCompanyName(response.data.jobCardItem.companyName)
@@ -41,7 +42,7 @@ const EditJob = () => {
 
   const submitHandleClick = async (e) => {
     e.preventDefault()
-    const response = await axios.put(`http://localhost:3001/updatejob/${id}`, {
+    const response = await axios.put(`${BASE_URL}/updatejob/${id}`, {
       companyName: currentCompanyName,
       jobTitle: currentJobTitle,
       hiringStatus: currentHiringStatus,
