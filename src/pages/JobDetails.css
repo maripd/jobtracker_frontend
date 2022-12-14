@@ -151,6 +151,8 @@ span {
 }
 
 .plus-reminder {
+  border: none;
+  background: transparent;
   border-radius: 10%;
   font-size: 20px;
   color: #8897a9;
@@ -231,7 +233,6 @@ html {
   height: 37px;
   background-color: #8897a900;
   font-family: sans-serif;
-  font-style: italic;
 }
 
 .applied {

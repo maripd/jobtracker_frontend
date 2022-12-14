@@ -161,6 +161,9 @@ const JobDetails = (props) => {
             className="inputplus-container"
             onSubmit={addReminderHandleClick}
           >
+            <button type="submit" className="plus-reminder">
+              +
+            </button>
             <input
               onChange={inputHandleChange}
               type="text"
@@ -168,9 +171,6 @@ const JobDetails = (props) => {
               className="reminder-inputbox"
               value={currentReminderText}
             />
-            <button type="submit" className="plus-reminder">
-              +
-            </button>
           </form>
 
           <div className="spancontainer-jobdetail">
