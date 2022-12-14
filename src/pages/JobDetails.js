@@ -166,6 +166,7 @@ const JobDetails = (props) => {
               type="text"
               placeholder="Add reminder"
               className="reminder-inputbox"
+              value={currentReminderText}
             />
             <button type="submit" className="plus-reminder">
               +
