@@ -69,7 +69,7 @@
   list-style-type: none;
   flex-direction: column;
   display: flex;
-  margin: 10px 0;
+  margin: auto 0;
 }
 
 .mainremind-container {

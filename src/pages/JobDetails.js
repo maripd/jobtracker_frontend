@@ -85,6 +85,7 @@ const JobDetails = (props) => {
       isComplete: false
     })
     getAllRemindersByJobId()
+    setReminderText('')
   }
 
   const inputHandleChange = (e) => {
@@ -156,17 +157,20 @@ const JobDetails = (props) => {
             </ul>
           </div>
 
-          <div className="inputplus-container">
+          <form
+            className="inputplus-container"
+            onSubmit={addReminderHandleClick}
+          >
             <input
               onChange={inputHandleChange}
               type="text"
               placeholder="Add reminder"
               className="reminder-inputbox"
             />
-            <span onClick={addReminderHandleClick} className="plus-reminder">
+            <button type="submit" className="plus-reminder">
               +
-            </span>
-          </div>
+            </button>
+          </form>
 
           <div className="spancontainer-jobdetail">
             <span className="spandetails">
