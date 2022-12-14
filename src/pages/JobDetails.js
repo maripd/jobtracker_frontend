@@ -20,7 +20,7 @@ const JobDetails = (props) => {
   const [currentReminders, setReminders] = useState([])
   console.log('THIS IS CURRENT REMINDERS', currentReminders)
   console.log(`This is JOBID`, id)
-  const BASE_URL = 'https://marijobtracker.herokuapp.com/'
+  const BASE_URL = 'https://marijobtracker.herokuapp.com'
 
   useEffect(() => {
     const getJobData = async () => {

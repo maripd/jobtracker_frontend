@@ -8,7 +8,7 @@ import ReminderItem from '../components/ReminderItem'
 import JobCard from '../components/JobCard'
 import CenterButtons from '../components/CenterButtonsHome'
 import '../components/CenterButtons.css'
-const BASE_URL = 'https://marijobtracker.herokuapp.com/'
+const BASE_URL = 'https://marijobtracker.herokuapp.com'
 
 const Home = () => {
   const [currentData, setData] = useState([])

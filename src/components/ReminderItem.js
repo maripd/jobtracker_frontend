@@ -4,7 +4,7 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { renderMatches, useParams } from 'react-router-dom'
 
-const BASE_URL = 'https://marijobtracker.herokuapp.com/'
+const BASE_URL = 'https://marijobtracker.herokuapp.com'
 
 const ReminderItem = (props) => {
   const completeHandleClick = async (e) => {

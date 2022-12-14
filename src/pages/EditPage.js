@@ -4,7 +4,7 @@ import axios from 'axios'
 import { useParams } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import React from 'react'
-const BASE_URL = 'https://marijobtracker.herokuapp.com/'
+const BASE_URL = 'https://marijobtracker.herokuapp.com'
 
 const EditJob = () => {
   const navigate = useNavigate()
