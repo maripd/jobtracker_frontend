@@ -14,7 +14,7 @@ const CreateJob = () => {
   const [currentJobListingEmail, setJobListingEmail] = useState('')
   const [currentNotes, setNotes] = useState('')
   const [currentUrls, setUrls] = useState('')
-  const BASE_URL = 'https://marijobtracker.herokuapp.com/'
+  const BASE_URL = 'https://marijobtracker.herokuapp.com'
 
   let { id } = useParams()
   const navigate = useNavigate()
