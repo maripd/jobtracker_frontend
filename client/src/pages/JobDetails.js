@@ -79,14 +79,14 @@ const JobDetails = (props) => {
   }
 
   const addReminderHandleClick = async (e) => {
+    setReminderText('')
     e.preventDefault()
     const response = await axios.post('http://localhost:3001/createreminder', {
       jobId: id,
       reminderText: currentReminderText,
       isComplete: false
     })
-    navigate('/')
-    // e.target.value = ''
+    getAllRemindersByJobId()
   }
 
   const inputHandleChange = (e) => {
@@ -95,105 +95,98 @@ const JobDetails = (props) => {
   }
 
   return (
-    <div>
-      <div className="main-container">
-        <div className="jobdetails-container">
-          <section>
-            <div className={`popup-box ${panelDisplay}`}>
-              <p onClick={xHandleClick} className="x-close">
-                x
-              </p>
-              <p className="popup-text">
-                Are you sure you want to remove this item?
-              </p>
-              <p className="removebtn" onClick={realDeleteHandleClick}>
-                DELETE
-              </p>
-            </div>
-            <div className="editdelete-btns">
-              <h2 className="companyname">{currentData.companyName}</h2>
-              <span onClick={editHandleClick} className="editbtn">
-                <img src={editImg} />
-              </span>
-              <span onClick={deletebtnHandleClick} className="deletebtn">
-                <img src={deleteImg} />
-              </span>
-            </div>
-
-            <div className="secondmain-container">
-              <div className="topsection">
-                <div className="titlelink-container">
-                  <h4 className="job-title">{currentData.jobTitle}</h4>
-                  <div className="job-link">
-                    <a href={currentData.urls}>JOB LINK</a>
-                  </div>
-                </div>
-
-                <div className="outerlayer-bar">
-                  <div className={currentData.applicationStatus}>
-                    <div>{currentData.applicationStatus}</div>
-                  </div>
-                </div>
-
-                <div>
-                  <ul className="reminderitem-container">
-                    {currentAllReminders.map((reminderItem) => {
-                      console.log(reminderItem)
-                      if (reminderItem.isComplete === true) {
-                        return <></>
-                      }
-
-                      return (
-                        <ReminderItem
-                          remindText={reminderItem.reminderText}
-                          id={reminderItem._id}
-                          jobId={reminderItem.jobId}
-                          completed={() => {
-                            getAllRemindersByJobId()
-                          }}
-                        />
-                      )
-                    })}
-                  </ul>
-                </div>
-
-                <div className="inputplus-container">
-                  <input
-                    onChange={inputHandleChange}
-                    type="text"
-                    placeholder="Add reminder"
-                    className="reminder-inputbox"
-                  />
-                  <span
-                    onClick={addReminderHandleClick}
-                    className="plus-reminder"
-                  >
-                    +
-                  </span>
-                </div>
-
-                <div className="spancontainer-jobdetail">
-                  <span className="spandetails">
-                    Hiring Status: {currentData.hiringStatus}
-                  </span>
-                  <span className="spandetails">
-                    Date added: {currentData.jobDateAdded}
-                  </span>
-                  <span className="spandetails">
-                    Date applied: {currentData.dateApplied}
-                  </span>
-
-                  <span>{currentData.contactEmail}</span>
-                </div>
-              </div>
-              <div className="notes-container">
-                <p>NOTES</p>
-                <span>{currentData.notes}</span>
-              </div>
-            </div>
-          </section>
+    <div className="jobdetails-container">
+      <section>
+        <div className={`popup-box ${panelDisplay}`}>
+          <p onClick={xHandleClick} className="x-close">
+            x
+          </p>
+          <p className="popup-text">
+            Are you sure you want to remove this item?
+          </p>
+          <p className="removebtn" onClick={realDeleteHandleClick}>
+            DELETE
+          </p>
         </div>
-      </div>
+        <div className="editdelete-btns">
+          <h2 className="companyname">{currentData.companyName}</h2>
+          <span onClick={editHandleClick} className="editbtn">
+            <img src={editImg} />
+          </span>
+          <span onClick={deletebtnHandleClick} className="deletebtn">
+            <img src={deleteImg} />
+          </span>
+        </div>
+
+        <div className="secondmain-container">
+          <div className="topsection">
+            <div className="titlelink-container">
+              <h4 className="job-title">{currentData.jobTitle}</h4>
+              <div className="job-link">
+                <a href={currentData.urls}>JOB LINK</a>
+              </div>
+            </div>
+
+            <div className="outerlayer-bar">
+              <div className={currentData.applicationStatus}>
+                <div>{currentData.applicationStatus}</div>
+              </div>
+            </div>
+
+            <div>
+              <ul className="reminderitem-container">
+                {currentAllReminders.map((reminderItem) => {
+                  console.log(reminderItem)
+                  if (reminderItem.isComplete === true) {
+                    return <></>
+                  }
+
+                  return (
+                    <ReminderItem
+                      remindText={reminderItem.reminderText}
+                      id={reminderItem._id}
+                      jobId={reminderItem.jobId}
+                      completed={() => {
+                        getAllRemindersByJobId()
+                      }}
+                    />
+                  )
+                })}
+              </ul>
+            </div>
+
+            <div className="inputplus-container">
+              <input
+                onChange={inputHandleChange}
+                type="text"
+                placeholder="Add reminder"
+                className="reminder-inputbox"
+              />
+              <span onClick={addReminderHandleClick} className="plus-reminder">
+                +
+              </span>
+            </div>
+
+            <div className="spancontainer-jobdetail">
+              <span className="spandetails">
+                Hiring Status: {currentData.hiringStatus}
+              </span>
+              <span className="spandetails">
+                Date added: {currentData.jobDateAdded}
+              </span>
+              <span className="spandetails">
+                Date applied: {currentData.dateApplied}
+              </span>
+
+              <span>{currentData.contactEmail}</span>
+            </div>
+          </div>
+          <div className="notes-container">
+            <p>NOTES</p>
+            <span>{currentData.notes}</span>
+          </div>
+        </div>
+      </section>
     </div>
   )
 }

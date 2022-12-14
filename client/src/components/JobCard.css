@@ -35,20 +35,6 @@
   background-color: rgb(231, 232, 233);
 }
 
-/* .statusbar-level {
-  height: 15px;
-  border-radius: 10px;
-  background-color: #C8C7D5;
-  width: 40%;
-  font-size: 7px;
-  justify-content: space-between;
-
-} */
-
-.main-container {
-  width: 390px;
-}
-
 .applied {
   height: 15px;
   border-radius: 10px;

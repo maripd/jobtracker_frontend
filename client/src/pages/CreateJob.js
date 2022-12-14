@@ -126,7 +126,7 @@ const CreateJob = () => {
           <option name="phoneinterview" value="phoneinterview">
             PHONE INTERVIEW
           </option>
-          <option name="hiringinterview" value="hiringstatus">
+          <option name="hiringinterview" value="hiringinterview">
             HIRING INTERVIEW
           </option>
           <option name="joboffer" value="joboffer">

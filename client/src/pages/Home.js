@@ -31,7 +31,7 @@ const Home = () => {
   }, [])
 
   return (
-    <div className="main-container">
+    <div className="homemain-container">
       <div className="reminders-box">
         <ul className="reminders-container">
           {currentReminders.map((remindItem) => {

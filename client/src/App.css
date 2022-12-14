@@ -60,11 +60,11 @@
 
 
 .reminders-container {
-  margin: 10px;
+  /* margin: 10px;
   border-radius: 5px;
-  padding: 0;
-  flex-direction: column;
-  width: 330px;
+
+  flex-direction: column; */
+  /* width: 330px; */
 }
 
 .jobdetails-container {

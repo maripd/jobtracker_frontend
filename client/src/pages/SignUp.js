@@ -1,19 +1,21 @@
-// import './SignUp.css'
+const SignUp = () => {
+  // const [authenticated, toggleAuthenticated] = useState(false)
+  // const [user, setUser] = useState(null)
 
-// const SignUp = () => {
-//   return (
-//     <div>
-//       <header>Mari</header>
-//       <form>
-//         <input placeholder="name" />
-//         <input placeholder="username" />
-//         <input placeholder="email" />
-//         <input placeholder="password" />
-//         <input placeholder="confirm password" />
-//         <button className="signup-btn">Submit</button>
-//       </form>
-//     </div>
-//   )
-// }
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault()
+  // }
 
-// export default SignUp
+  return (
+    <div>
+      <form>
+        <input className="name" placeholder="name" />
+        <input className="username" placeholder="username" />
+        <input className="password" placeholder="password" />
+        <input className="confirmpassword" placeholder="confirm password" />
+      </form>
+    </div>
+  )
+}
+
+export default SignUp
