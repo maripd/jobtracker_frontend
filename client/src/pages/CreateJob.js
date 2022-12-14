@@ -4,8 +4,6 @@ import axios from 'axios'
 import { useState } from 'react'
 import React from 'react'
 
-const BASE_URL = 'https://marijobtracker.herokuapp.com/'
-
 const CreateJob = () => {
   const [currentCompanyName, setCompanyName] = useState('')
   const [currentJobTitle, setJobTitle] = useState('')
@@ -16,6 +14,7 @@ const CreateJob = () => {
   const [currentJobListingEmail, setJobListingEmail] = useState('')
   const [currentNotes, setNotes] = useState('')
   const [currentUrls, setUrls] = useState('')
+  const BASE_URL = 'https://marijobtracker.herokuapp.com/'
 
   let { id } = useParams()
   const navigate = useNavigate()
@@ -35,7 +34,7 @@ const CreateJob = () => {
       urls: currentUrls
     })
     console.log(currentApplicationStatus)
-    navigate(-1)
+    navigate('/')
   }
 
   const companyNameHandleChange = (e) => {
