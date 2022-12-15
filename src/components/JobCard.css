@@ -9,11 +9,10 @@
   justify-content: space-evenly;
   padding: 5px 10px;
   box-shadow:  4px 6px 9px rgb(205, 201, 201);
-  width: 150px;
-  height: 150px;
+  width: 135px;
+  height: 135px;
   border-radius: 10px;
   background-color: white;
-  margin: auto 7px;
 }
 
 .jobcard-detail {

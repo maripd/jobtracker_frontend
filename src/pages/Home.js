@@ -69,7 +69,7 @@ const Home = () => {
       <div className="center-btns">
         <CenterButtons />
       </div>
-      <div>
+      <div className="maincard-div">
         <ul className="job-card">
           {currentData.map((jobItem) => {
             return (
