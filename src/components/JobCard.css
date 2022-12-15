@@ -9,8 +9,8 @@
   justify-content: space-evenly;
   padding: 5px 10px;
   box-shadow:  4px 6px 9px rgb(205, 201, 201);
-  width: 135px;
-  height: 135px;
+  width: 140px;
+  height: 140px;
   border-radius: 10px;
   background-color: white;
 }
@@ -76,7 +76,8 @@
   color: white;
 }
 
-.ghosting {
+.ghosted
+ {
   height: 15px;
   border-radius: 10px;
   background-color: #2f3031;
