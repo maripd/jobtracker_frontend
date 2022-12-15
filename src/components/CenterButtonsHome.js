@@ -16,6 +16,16 @@ const CenterButtons = () => {
           + ADD NEW JOB
         </button>
       </div>
+      <div>
+        <select>
+          <option value="applied">APPLIED</option>
+          <option value="phoneinterview">PHONE INTERVIEW</option>
+          <option value="hiring">HIRING INTERVIEW</option>
+          <option value="joboffer">JOB OFFER</option>
+          <option value="rejected">REJECTED</option>
+          <option value="ghosting">GHOSTING</option>
+        </select>
+      </div>
       <div className="threecenter-btns">
         {/* <img src={search} id="search-icon" /> */}
         <img src={filter} id="filter-icon" />
