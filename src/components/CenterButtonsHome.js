@@ -34,32 +34,35 @@ const CenterButtons = () => {
     }
   }
   let panelDisplay = 'show'
-  if (currentDisplay === '')
-    return (
-      <div className="centerbtns-container">
-        <div className="addjob-btncontainer">
-          <button className="addjob-btn" onClick={addJobClick}>
-            + ADD NEW JOB
-          </button>
-          <div className="dropdown show">
-            <select>
-              <option value="applied">APPLIED</option>
-              <option value="phoneinterview">PHONE INTERVIEW</option>
-              <option value="hiring">HIRING INTERVIEW</option>
-              <option value="joboffer">JOB OFFER</option>
-              <option value="rejected">REJECTED</option>
-              <option value="ghosting">GHOSTING</option>
-            </select>
-          </div>
-        </div>
+  if (currentDisplay === 'show') {
+    setDisplay('show')
+  }
 
-        <div className="threecenter-btns">
-          {/* <img src={search} id="search-icon" /> */}
-          <img src={filter} id="filter-icon" onClick={filterClick} />
-          <img src={sort} id="sort-icon" />
-        </div>
+  return (
+    <div className="centerbtns-container">
+      <div className="addjob-btncontainer">
+        <button className="addjob-btn" onClick={addJobClick}>
+          + ADD NEW JOB
+        </button>
       </div>
-    )
+
+      <div className="threecenter-btns">
+        {/* <img src={search} id="search-icon" /> */}
+        <img src={filter} id="filter-icon" onClick={showClick} />
+        <div className="dropdown show">
+          <select>
+            <option value="applied">APPLIED</option>
+            <option value="phoneinterview">PHONE INTERVIEW</option>
+            <option value="hiring">HIRING INTERVIEW</option>
+            <option value="joboffer">JOB OFFER</option>
+            <option value="rejected">REJECTED</option>
+            <option value="ghosting">GHOSTING</option>
+          </select>
+        </div>
+        <img src={sort} id="sort-icon" />
+      </div>
+    </div>
+  )
 }
 
 export default CenterButtons

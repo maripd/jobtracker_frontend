@@ -32,3 +32,11 @@
   font-family: sans-serif;
   font-size: 12px;
 }
+
+.dropdown {
+  display: none;
+}
+
+.show {
+  display: block;
+}
