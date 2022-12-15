@@ -151,6 +151,7 @@ span {
 }
 
 .plus-reminder {
+  margin: auto 0;
   border: none;
   background: transparent;
   border-radius: 10%;
