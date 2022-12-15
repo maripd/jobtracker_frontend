@@ -136,7 +136,7 @@ const CreateJob = () => {
           <option name="rejected" value="rejected">
             REJECTED
           </option>
-          <option name="ghosting" value="ghosting">
+          <option name="ghosted" value="ghosted">
             GHOSTED
           </option>
         </select>
