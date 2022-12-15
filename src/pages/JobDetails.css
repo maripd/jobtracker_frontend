@@ -222,6 +222,10 @@ html {
   background-image: linear-gradient(to top, rgb(222, 222, 223), white);
 }
 
+.inputplus-container {
+  display: flex;
+  flex-direction: row;
+}
 /* inputbox and plus */
 .reminder-inputbox {
   border: none;
