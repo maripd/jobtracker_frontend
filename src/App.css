@@ -118,3 +118,11 @@ html {
   font-size: 30px;
   margin: 10px 0;
   }
+
+@media screen and (min-width: 400px) {
+  body {
+    width: 600px;
+  }
+} 
+
+
