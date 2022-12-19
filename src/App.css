@@ -119,7 +119,7 @@ html {
   margin: 10px 0;
   }
 
-@media screen and (min-width: 400px) {
+@media screen and (max-width: 600px) {
   body {
     width: 600px;
     margin: 0 auto;
