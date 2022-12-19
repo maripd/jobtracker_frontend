@@ -2,7 +2,13 @@
 max-width: 600px;
 margin: 0 auto;
 } */
-bo
+body {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 900px;
+  min-width: 400px;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -119,11 +125,5 @@ html {
   margin: 10px 0;
   }
 
-@media screen and (max-width: 600px) {
-  body {
-    width: 600px;
-    margin: 0 auto;
-  }
-} 
 
 
