@@ -9,16 +9,9 @@ body {
   margin: auto 20px;
 }
 
-.jobdetails-container {
-  /* margin: auto auto; */
-}
-
 .secondmain-container {
-  /* border: 1px solid rgba(182, 194, 212, 0.767); */
   margin: 0 auto;
-
   border-radius: 4px;
-  /* background-color: #c8d5d6; */
 }
 
 .titlelink-container {
@@ -64,7 +57,6 @@ span {
   color: rgb(110, 107, 107);
 }
 
-
 .spancontainer-jobdetail {
   width: 85%;
   padding: 40px 30px;
@@ -79,14 +71,11 @@ span {
   color: rgb(110, 107, 107);
 }
 
-
 .topsection {
   padding: 5px;
 }
 
-
 .companyname {
-  /* margin: 25px 105px 10px 0; */
   font-family: sans-serif;
   font-size: 20px;
 }
@@ -101,7 +90,6 @@ span {
   margin: 0
    auto;
 }
-
 
 .deletebtn, .editbtn {
   padding: 5px;
@@ -146,7 +134,6 @@ span {
  font-size: 9px;
 }
 
-
 .hide {
   display: none;
 }
@@ -161,9 +148,6 @@ span {
   margin: -7px;
   width: 0;
 }
-
-
-
 
 html {
   background-image: linear-gradient(to top, rgb(228, 228, 228), rgb(255, 255, 255));
@@ -198,8 +182,6 @@ html {
     box-shadow: 3px 5px 8px rgb(233, 233, 233);
   }
   
-
-
 .reminderitem-container {
   display: block;
   text-align: left;

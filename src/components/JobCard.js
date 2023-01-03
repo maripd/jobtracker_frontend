@@ -5,7 +5,6 @@ const JobCard = (props) => {
   const navigate = useNavigate()
 
   const cardHandleClick = () => {
-    // add id for path
     navigate(`/jobDetails/${props.id}`)
   }
 

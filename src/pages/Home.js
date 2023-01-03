@@ -1,4 +1,3 @@
-// import { Link } from 'react-router-dom'
 import '../App.css'
 import React from 'react'
 import axios from 'axios'
@@ -17,14 +16,11 @@ const Home = () => {
   console.log('THIS IS CURRENT REMINDERS', currentReminders)
   const getRemindersData = async () => {
     const response = await axios.get(`${BASE_URL}/getallreminders`)
-    // console.log('This is the REMINDERS data', response.data.allReminders)
     setReminders(response.data.allReminders)
   }
   useEffect(() => {
     const getJobData = async () => {
       const response = await axios.get(`${BASE_URL}/getalljobs`)
-      // console.log('This is the DATA that I need!', response.data.allJobs)
-      // console.log('COMPANY NAME', response.data.allJobs)
       setData(response.data.allJobs)
       getRemindersData()
     }
@@ -39,9 +35,6 @@ const Home = () => {
             if (remindItem.isComplete === true) {
               return <></>
             }
-            // console.log('this is a remind item', remindItem)
-            // console.log('THIS IS JOB ID', remindItem.jobId)
-
             let companyName = ''
             let foundJobObj = currentData.find((jobItem) => {
               console.log('job and reminder id', jobItem.id, remindItem.jobId)

@@ -141,22 +141,6 @@ const CreateJob = () => {
           </option>
         </select>
 
-        {/* <option value="applied">APPLIED</option>
-          <option value="phone-interview">PHONE INTERVIEW</option>
-          <option value="hiring-interview">HIRING INTERVIEW</option>
-          <option value="offer">JOB OFFER</option>
-          <option value="rejected">REJECTED</option> 
-
-        <input
-          value={currentApplicationStatus}
-          type="text"
-          onChange={(e) =>
-            applicationStatusHandleChange(e, 'application status')
-          }
-          className="form-item"
-          placeholder="application status"
-        /> */}
-
         <input
           value={currentJobListingEmail}
           onChange={(e) => contactEmailHandleChange(e, 'contact email')}
