@@ -33,6 +33,7 @@ const Home = () => {
         <ul className="reminders-container">
           {currentReminders.map((remindItem) => {
             if (remindItem.isComplete === true) {
+              //if data is empty, return empty element
               return <></>
             }
             let companyName = ''
