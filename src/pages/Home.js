@@ -12,7 +12,7 @@ const BASE_URL = 'https://marijobtracker.herokuapp.com'
 const Home = () => {
   const [currentData, setData] = useState([])
   const [currentReminders, setReminders] = useState([])
-  const [currentApplicationStatus, setApplicationStatus] = useState('')
+  // const [currentApplicationStatus, setApplicationStatus] = useState('')
   console.log('THIS IS CURRENT REMINDERS', currentReminders)
   const getRemindersData = async () => {
     const response = await axios.get(`${BASE_URL}/getallreminders`)
@@ -40,7 +40,6 @@ const Home = () => {
               console.log('job and reminder id', jobItem.id, remindItem.jobId)
               return jobItem._id === remindItem.jobId
             })
-
             if (foundJobObj) {
               console.log('FOUND OBJ', foundJobObj)
               companyName = foundJobObj.companyName
